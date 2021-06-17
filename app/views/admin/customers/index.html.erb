@@ -10,19 +10,27 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <% @admin_customers.each do |admin_customer| %>
-        <td><%= admin_customer.id%></td>
-        <td><%= admin_customer.name %></td>
-        <td><%= admin_customer.email %></td>
-        
-        <td><%= admin_customer.finished ? '有効' : '退会' %></td>
-        
-        <% end %>
-      </tr>
+      <% @admin_customers.each do |admin_customer| %>
+        <tr>
+          <td><%= admin_customer.id%></td>
+          <td><%= admin_customer.last_name %><%= admin_customer.first_name %></td>
+          <td><%= admin_customer.email %></td>
+          
+          <td>
+            <% if admin_customer.is_deleted %>
+              <%= "退会" %>
+            <% else %>
+              <%= "有効" %>
+            <% end %>
+          </td>
+          
+        </tr>
+      <% end %>
     </tbody>
   </table>
   
-  <%= paginate @admin_customers %>
+  <div class="col-md-1 col-md-offset-6 mx-auto">
+    <%= paginate @admin_customers %>
+  </div>
   
 </div>
