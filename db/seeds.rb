@@ -5,3 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+p "create Customers"
+Customer.create!(
+  last_name: '佐藤',
+  first_name: '愛',
+  last_name_kana: 'サトウ',
+  first_name_kana: 'アイ',
+  email: 'user1@exam.com',
+  postal_code: '1111111',
+  address: '東京都港区',
+  password: 'aaaaaaaa',
+  telephone_number: '1111111111',
+)
+Customer.create!(
+  last_name: '橋本',
+  first_name: '勇気',
+  last_name_kana: 'ハシモト',
+  first_name_kana: 'ユウキ',
+  email: 'user2@exam.com',
+  postal_code: '2222222',
+  address: '東京都葛飾区',
+  password: 'bbbbbbbb',
+  telephone_number: '2222222222',
+)
+Customer.create!(
+  last_name: '田中',
+  first_name: '凌',
+  last_name_kana: 'タナカ',
+  first_name_kana: 'リョウ',
+  email: 'user3@exam.com',
+  postal_code: '3333333',
+  address: '東京都台東区',
+  password: 'cccccccc',
+  telephone_number: '3333333333',
+)
