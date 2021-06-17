@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
   validates :address, presence: true
-  validates :tellphone_number, presence: true
+  validates :telephone_number, presence: true
   validates :postal_code, presence: true, length: {is:7}
 
 end
