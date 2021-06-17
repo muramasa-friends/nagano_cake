@@ -22,3 +22,22 @@
    padding: 0;
    box-sizing: border-box;
  }
+
+ h1 {
+  font-size: 60px;
+ }
+
+  .top-visual {
+   background-image: url(img/cake.jpg);
+   background-size: cover;
+ }
+
+ .top-visual-content {
+   background-color: #fff;
+   border-style: solid;
+ }
+
+ .cake-image {
+  height: 200px;
+  width: 400px;
+ }

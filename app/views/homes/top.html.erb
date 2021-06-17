@@ -1,1 +1,21 @@
-トップページです。
+<div class="cotainer">
+  <div class="row">
+    <div class="top-visual mx-auto my-5 p-5 col-8">
+        <p class="top-visual-content mx-auto col-7">
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+    </div>
+  </div>
+</div>
+
+<h2>新着商品</h2>
+  <% @items.first(4).each do |item| %>
+    <%= attachment_image_tag item, :image, :fill, 20, 30, format: 'jpeg', fallback: "img/no_image.jpg" %>
+    <%= item.name %>
+    <%= item.price %>
+  <% end %>
+<p><%= link_to "全ての商品を見る>", items_path, class: "text-right" %></p>
+
