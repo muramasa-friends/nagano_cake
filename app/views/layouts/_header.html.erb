@@ -8,10 +8,11 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
-        　<li><%= link_to 'マイページ', customer_path(current_user), class: 'fas fa-user nav-link' %></li>
+          <li class="d-flex align-items-center"><span>ようこそ、<%= current_customer.last_name %>さん！</span></li>
+        　<li><%= link_to 'マイページ', customer_path(current_customer), class: 'fas fa-user nav-link' %></li>
           <li><%= link_to '商品一覧', items_path, class: 'fas fa-cheese nav-link' %></li>
-          <li><%= link_to 'カート', customer_cart_items_path(current_user), class: 'fas fa-shopping-cart nav-link' %></li>
-          <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'fa-sign-out-altfas nav-link' %></li>
+          <li><%= link_to 'カート', customer_cart_items_path(current_customer), class: 'fas fa-shopping-cart nav-link' %></li>
+          <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %></li>
         <% elsif admin_signed_in? %>
           <li><%= link_to '商品一覧', admin_items_path, class: 'fas fa-cheese nav-link' %></li>
           <li><%= link_to '会員一覧', admin_customers_path, class: 'fas fa-users nav-link' %></li>
