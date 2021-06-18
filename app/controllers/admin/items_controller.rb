@@ -13,7 +13,6 @@ class Admin::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @items = Item.all
   end
 
   def update
