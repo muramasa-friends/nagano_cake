@@ -1,6 +1,7 @@
 <!--配送先登録/一覧ページ-->
 <div class="container">
-<p>配送先登録/一覧</p>
+  <%= render 'layouts/errors', obj: @address %>
+  <p>配送先登録/一覧</p>
   <!--配送先登録フォーム-->
   <%= form_with model:@address, class: 'form-horizontal col-md-9 col-sm-12', local: true do |f| %>
     <div class='form-group'>
