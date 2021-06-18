@@ -11,7 +11,7 @@
     <%= f.label :last_name, "（姓）　" %>
     <%= f.text_field :last_name, autofocus: true, :placeholder => "令和", class: "form-control" %>
     <%= f.label :first_name, "（名）　", class: "ml-md-3" %>
-    <%= f.text_field :first_name, autofocus: true, :placeholder => "道子", class: "form-control" %>
+    <%= f.text_field :first_name, :placeholder => "道子", class: "form-control" %>
     </div>
   </div>
 
@@ -19,37 +19,37 @@
     <%= f.label "フリガナ", class: "col-md-4" %>
     <div class="col-md-8 form-inline ml-md-n3">
     <%= f.label :last_name_kana, "（セイ）" %>
-    <%= f.text_field :last_name_kana, autofocus: true, :placeholder => "レイワ", class: "form-control" %>
+    <%= f.text_field :last_name_kana, :placeholder => "レイワ", class: "form-control" %>
     <%= f.label :first_name_kana, "（メイ）", class: "ml-md-3" %>
-    <%= f.text_field :first_name_kana, autofocus: true, :placeholder => "ミチコ", class: "form-control" %>
+    <%= f.text_field :first_name_kana, :placeholder => "ミチコ", class: "form-control" %>
     </div>
   </div>
 
   <div class="field row pt-2">
     <%= f.label :email, "メールアドレス", class: "col-md-4" %>
     <div class="col-md-3 ml-md-5">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@example.com", class: "form-control" %>
+    <%= f.email_field :email, autocomplete: "email", :placeholder => "sample@example.com", class: "form-control" %>
     </div>
   </div>
 
   <div class="field row pt-2">
     <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-md-4" %>
     <div class="col-md-3 ml-md-5">
-    <%= f.text_field :postal_code, autofocus: true, :placeholder => "0000000", class: "form-control" %>
+    <%= f.text_field :postal_code, :placeholder => "0000000", class: "form-control" %>
     </div>
   </div>
 
   <div class="field row pt-2">
     <%= f.label :address, "住所", class: "col-md-4" %>
     <div class="col-md-3 ml-md-5">
-    <%= f.text_field :address, autofocus: true, :placeholder => "東京都渋谷区代々木神園町0-0", class: "form-control" %>
+    <%= f.text_field :address, :placeholder => "東京都渋谷区代々木神園町0-0", class: "form-control" %>
     </div>
   </div>
 
   <div class="field row pt-2">
     <%= f.label :telephone_number, "電話番号（ハイフンなし）", class: "col-md-4" %>
     <div class="col-md-3 ml-md-5">
-    <%= f.text_field :telephone_number, :placeholder => "0000000000", autofocus: true, class: "form-control" %>
+    <%= f.text_field :telephone_number, :placeholder => "0000000000", class: "form-control" %>
     </div>
   </div>
 
