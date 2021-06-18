@@ -1,3 +1,4 @@
+
 <div class="container">
   <h2>会員一覧</h2>
   <table class="table">
@@ -10,14 +11,14 @@
       </tr>
     </thead>
     <tbody>
-      <% @admin_customers.each do |admin_customer| %>
+      <% @admin_customers.each do |customer| %>
         <tr>
-          <td><%= admin_customer.id%></td>
-          <td><%= admin_customer.last_name %><%= admin_customer.first_name %></td>
-          <td><%= admin_customer.email %></td>
+          <td><%= customer.id%></td>
+          <td><%= customer.last_name %><%= customer.first_name %></td>
+          <td><%= customer.email %></td>
           
           <td>
-            <% if admin_customer.is_deleted %>
+            <% if customer.is_deleted %>
               <%= "退会" %>
             <% else %>
               <%= "有効" %>
@@ -34,3 +35,4 @@
   </div>
   
 </div>
+
