@@ -1,2 +1,44 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<h2><%= @admin_customer.last_name %><%= @admin_customer.first_name %>さんの会員詳細</h2>
+
+<table class="table">
+    <tr>
+        <th>会員ID</th>
+        <th><%= admin_customer.id%></th>
+    </tr>
+    <tr>
+        <th>氏名</th>
+        <th><%= @admin_customer.last_name %>  <%= @admin_customer.first_name %></th>
+    </tr>
+    <tr>
+        <th>フリガナ</th>
+        <th><%= @admin_customer.last_name_kana %>  <%= @admin_customer.first_name_kana %></th>
+    </tr>
+    <tr>
+        <th>郵便番号</th>
+        <th><%= @admin_customer.postal_code %></th>
+    </tr>
+    <tr>
+        <th>住所</th>
+        <th><%= @admin_customer.address %></th>
+    </tr>
+    <tr>
+        <th>電話番号</th>
+        <th><%= @admin_customer.telephone_number %></th>
+    </tr>
+    <tr>
+        <th>メールアドレス</th>
+        <th><%= @admin_customer.email %></th>
+    </tr>
+    <tr>
+        <th>会員ステータス</th>
+        <th>
+            <% if admin_customer.is_deleted %>
+              <%= "退会" %>
+            <% else %>
+              <%= "有効" %>
+            <% end %>
+        </th>
+    </tr>
+    
+    <%= link_to '編集する', edit_admin_customer(@admin_customer), class: "btn btn-sm btn-success edit_admin_customer_#{@admin_customer.id}" %>
+</table>
