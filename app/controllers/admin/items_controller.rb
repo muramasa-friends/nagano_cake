@@ -7,6 +7,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @tax = @item.price * 0.1 + @item.price
   end
 
 
@@ -21,9 +23,11 @@ class Admin::ItemsController < ApplicationController
     redirect_to admin_item_path(@item)
   end
 
+
   private
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :image, :is_active, :genre_id)
   end
+
 
 end
