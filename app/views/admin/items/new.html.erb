@@ -1,8 +1,21 @@
 <h5 class='offset-md-2'>商品新規登録</h5>
 <div class="cotainer">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-4 px-5 px-sm-0 mx-auto">
-      <%= form_with model: @item, local:true do |f| %>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
+
+        <!-- エラーメッセージ-->
+        <% if @item.errors.any? %>
+          <div id ="error_explanation">
+            <h3><%= @item.errors.count %> error prohibited this book from being saved:</h3>
+            <ul>
+              <% @item.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <div class="form-group row">
           <%= f.label :image, "商品画像", class: "col-sm-4 col-form-label" %>
           <div class="col-sm-8">
@@ -41,12 +54,12 @@
         <div class="form-group row">
           <%= f.label :"販売ステータス", class: "col-sm-4 col-form-label" %>
           <div class="form-check form-check-inline">
-            <%= f.radio_button :is_active, '1', checked: true, class: "form-check-input ml-3" %>
-            <%= f.label :is_active, "販売中", value: 1, class: "form-check-label" %>
+            <%= f.radio_button :is_active, :true, class: "form-check-input ml-3" %>
+            <%= f.label :is_active, "販売中", value: true, class: "form-check-label" %>
           </div>
           <div class="form-check form-check-inline">
-            <%= f.radio_button :is_active, '0', checked: true, class: "form-check-input ml-3" %>
-            <%= f.label :is_active, "販売停止中", value: 0, class: "form-check-label" %>
+            <%= f.radio_button :is_active, :false, class: "form-check-input ml-3" %>
+            <%= f.label :is_active, "販売停止中", value: false, class: "form-check-label" %>
           </div>
         </div>
 
