@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @admin_customers.each do |customer| %>
+      <% @customers.each do |customer| %>
         <tr>
           <td><%= customer.id%></td>
           <td><%= customer.last_name %><%= customer.first_name %></td>
@@ -31,7 +31,7 @@
   </table>
   
   <div class="col-md-1 col-md-offset-6 mx-auto">
-    <%= paginate @admin_customers %>
+    <%= paginate @customers %>
   </div>
   
 </div>
