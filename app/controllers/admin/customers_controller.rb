@@ -5,10 +5,18 @@ class Admin::CustomersController < ApplicationController
 
   def show
 <<<<<<< HEAD
+<<<<<<< HEAD
     @customer = Customer.find(params[:id])
 =======
     
 >>>>>>> ede817e08d28a9c3cd6d6d7874e9f205e4cdcef5
+=======
+
+    @customer = Customer.find(params[:id])
+
+    
+
+>>>>>>> 6e680a0b40bbee27990d3d802bbef770c48061c1
   end
 
   def edit
