@@ -3,7 +3,7 @@
 <table class="table">
     <tr>
         <th>会員ID</th>
-        <th><%= admin_customer.id%></th>
+        <th><%= @admin_customer.id%></th>
     </tr>
     <tr>
         <th>氏名</th>
@@ -32,13 +32,19 @@
     <tr>
         <th>会員ステータス</th>
         <th>
-            <% if admin_customer.is_deleted %>
+            <% if @admin_customer.is_deleted %>
               <%= "退会" %>
             <% else %>
               <%= "有効" %>
             <% end %>
         </th>
     </tr>
-    
-    <%= link_to '編集する', edit_admin_customer(@admin_customer), class: "btn btn-sm btn-success edit_admin_customer_#{@admin_customer.id}" %>
 </table>
+    <div class="row">
+        <div>
+            <%= link_to '編集する', edit_admin_customer_path(@admin_customer), class: "btn btn-sm btn-success edit_admin_customer_#{@admin_customer.id}" %>
+        </div>
+        <div>
+            <%= link_to '注文履歴一覧を表示する', admin_orders_path, class: "btn btn-sm btn-primary" %>
+        </div>
+    </div>
