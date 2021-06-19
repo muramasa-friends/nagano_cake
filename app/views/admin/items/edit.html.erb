@@ -1,21 +1,38 @@
-<h2>商品編集</h2>
+<h5 class='offset-md-2 mt-4'>商品編集</h5>
 <div class="container">
   <div class="row">
-    <div class="max-auto">
+    <div class="mx-auto mt-5">
       <%= form_with model: @item, local:true do |f| %>
-        <p>商品画像 <%= f.attachment_field :image %></p>
-        <p>商品名 <%= f.text_field :name %></p>
-        <p>商品説明 <%= f.text_area :introduction %></p>
-        <p>ジャンル <%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] } %></p>
-        <p>税抜価格 <%= f.text_field :price %>円</p>
-        <p>
-          販売ステータス
-          <%= f.radio_button :is_active, '1', checked: true %>
-          <%= f.label :is_active, '販売中', value: 1 %>
-          <%= f.radio_button :is_active, '0', checked: true %>
-          <%= f.label :is_active, '販売停止中', value: 0 %>
-        </p>
-        <p><%= f.submit "変更を保存", class: "btn btn-success" %></p>
+        <div class="field">
+          <%= f.label :image, "商品画像", class: "col-3" %>
+          <%= f.attachment_field :image, class: "col-8" %>
+        </div>
+        <div class="field mt-2">
+          <%= f.label :name, "商品名", class: "col-3" %>
+          <%= f.text_field :name, class: "col-8" %>
+        </div>
+        <div class="field mt-2">
+          <%= f.label :introduction, "商品説明", class: "col-3" %>
+          <%= f.text_area :introduction, class: "col-8" %>
+        </div>
+        <div class="field mt-2">
+          <%= f.label :genre, "ジャンル", class: "col-3" %>
+          <%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] }, {}, {class: "col-8"} %>
+        </div>
+        <div class="field mt-2">
+          <%= f.label :price, "税抜価格", class: "col-3" %>
+          <%= f.text_field :price, class: "col-8" %>円
+        </div>
+        <div class="field mt-2">
+          <%= f.label :is_active, "販売ステータス", class: "col-4" %>
+          <%= f.radio_button :is_active, :true, checked: true %>
+          <%= f.label :is_active, '販売中', value: true %>
+          <%= f.radio_button :is_active, :false, checked: true %>
+          <%= f.label :is_active, '販売停止中', value: false %>
+        </div>
+        <div class="actions mt-2">
+          <%= f.submit "変更を保存", class: "btn btn-success px-4 offset-md-4" %>
+        </div>
       <% end %>
     </div>
   </div>
