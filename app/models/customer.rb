@@ -17,4 +17,10 @@ class Customer < ApplicationRecord
   validates :telephone_number, presence: true
   validates :postal_code, presence: true, length: {is:7}
 
+  def full_name
+    self.last_name + self.first_name
+  end
+
+
+
 end
