@@ -1,23 +1,42 @@
-<h2>商品詳細</h2>
+<h5 class='offset-md-2'>商品詳細</h5>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg', fallback: "img/no_image.jpg" %>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
-    <div class="ml-5">
-      <%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg', fallback: "img/no_image.jpg" %>
-    </div>
-
-    <div class="col-8">
-      <p>商品名 <%= @item.name %></p>
-      <p>商品説明 <%= @item.introduction %></p>
-      <p>ジャンル <%= @item.genre.name %></p>
-      <p>
-        税込価格<br>
-        （税抜価格）
+    <div class="mx-auto">
+      <div class="field">
+        <%= label_tag :name, "商品名", class: "col-6" %>
+        <%= @item.name %>
+      </div>
+      <div class="field">
+        <%= label_tag :introduction, "商品説明", class: "col-6" %>
+        <%= @item.introduction %>
+      </div>
+      <div class="field">
+        <%= label_tag :genre, "ジャンル", class: "col-6" %>
+        <%= @item.genre.name %>
+      </div>
+      <div class="field">
+        <%= label_tag :price, "税込価格", class: "col-6" %><br>
+        <%= label_tag :price, "(税抜価格)", class: "col-6" %>
         <%= @tax.to_i %>
         （<%= @item.price %>）円
-      </p>
-      <p><%= @item.is_active == true ? "販売中" : "販売停止中" %></p>
-      <p><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %></p>
+      </div>
+      <div class="field">
+        <%= label_tag :is_active, "販売ステータス", class: "col-6" %>
+        <div class= "sale-status">
+          <%= @item.is_active == true ? "販売中" : "販売停止中" %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success px-4 offset-md-4" %>
+      </div>
     </div>
   </div>
 </div>
