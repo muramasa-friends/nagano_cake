@@ -3,7 +3,16 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+  end
 
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to item_path(@item)
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -24,11 +33,9 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
-
   private
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :image, :is_active, :genre_id)
   end
-
 
 end
