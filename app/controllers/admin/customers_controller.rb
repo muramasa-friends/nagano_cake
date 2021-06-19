@@ -1,9 +1,14 @@
 class Admin::CustomersController < ApplicationController
   def index
+    @customers = Customer.order(created_at: :asc).page(params[:page]).per(10)
   end
 
   def show
+<<<<<<< HEAD
     @customer = Customer.find(params[:id])
+=======
+    
+>>>>>>> ede817e08d28a9c3cd6d6d7874e9f205e4cdcef5
   end
 
   def edit
