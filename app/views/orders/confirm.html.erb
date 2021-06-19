@@ -1,2 +1,42 @@
-<h1>Orders#confirm</h1>
-<p>Find me in app/views/orders/confirm.html.erb</p>
+<h5 class='offset-md-2'>注文情報確認</h5>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">商品名</th>
+      <th scope="col">単価(税込)</th>
+      <th scope="col">数量</th>
+      <th scope="col">小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+        <tr>
+          <td></td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row">送料</th>
+      <td>Mark</td>
+    </tr>
+    <tr>
+      <th scope="row">商品合計</th>
+      <td>Mark</td>
+    </tr>
+    <tr>
+      <th scope="row">請求金額</th>
+      <td>Mark</td>
+    </tr>
+  </tbody>
+</table>
+
+<strong>支払方法</strong>
+
+<strong>お届け先</strong>
