@@ -6,6 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Genre.create!(
+  name: "ケーキ"
+  )
+
+Item.create!(
+      name: 'ケーキ',
+      introduction: '新鮮なイチゴを使用しています。',
+      price: 100,
+      image: File.open('./app/assets/images/img/cake.jpg'),
+      is_active: 0,
+      genre_id: 1
+)
+
 p "create Customers"
 Customer.create!(
   last_name: '佐藤',
@@ -40,3 +53,6 @@ Customer.create!(
   password: 'cccccccc',
   telephone_number: '3333333333',
 )
+
+
+
