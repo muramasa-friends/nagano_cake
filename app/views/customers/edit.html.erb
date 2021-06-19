@@ -2,7 +2,7 @@
   <h5 class='offset-md-1 pb-4'>会員情報編集</h5>
   <div class='row'>
     <div class="col-sm-12 col-md-9 col-lg-9 px-5 px-sm-0">
-      <%= form_with model: @customer, url: customer_path do |f| %>
+      <%= form_with model: @customer, url: customer_path, local:true do |f| %>
 
         <!-- エラーメッセージ-->
         <% if @customer.errors.any? %>
