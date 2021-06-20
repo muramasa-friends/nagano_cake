@@ -6,23 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-<<<<<<< HEAD
-Genre.create!(
-  name: "ケーキ"
-  )
-
-Item.create!(
-      name: 'ケーキ',
-      introduction: '新鮮なイチゴを使用しています。',
-      price: 100,
-      image: File.open('./app/assets/images/img/cake.jpg'),
-      is_active: 0,
-      genre_id: 1
-)
-
-=======
-
->>>>>>> a04b98678da0b3f1f19a5267a46492de4770d87b
 p "create Customers"
 Customer.create!(
   last_name: '佐藤',
@@ -58,20 +41,42 @@ Customer.create!(
   telephone_number: '3333333333',
 )
 
-<<<<<<< HEAD
-
-=======
+p "create Genres"
 Genre.create!(
   name: "ケーキ"
   )
 
+Genre.create!(
+  name: "プリン"
+  )
+
+p "create Items"
 Item.create!(
       name: 'ケーキ',
       introduction: '新鮮なイチゴを使用しています。',
       price: 100,
       image: File.open('./app/assets/images/img/cake.jpg'),
-      is_active: 0,
+      is_active: true,
       genre_id: 1
 )
->>>>>>> a04b98678da0b3f1f19a5267a46492de4770d87b
+
+Item.create!(
+      name: 'プリン',
+      introduction: 'なめらかな食感と濃厚な味わいのカスタードプリンです。',
+      price: 300,
+      image: File.open('./app/assets/images/img/pudding.jpg'),
+      is_active: false,
+      genre_id: 2
+)
+
+10.times do |n|
+  Item.create!(
+    name: "ケーキ#{n + 1}",
+    introduction: '新鮮なイチゴを使用しています。',
+    price: 100,
+    image: File.open('./app/assets/images/img/no_image.jpg'),
+    is_active: true,
+    genre_id: 1
+    )
+end
 
