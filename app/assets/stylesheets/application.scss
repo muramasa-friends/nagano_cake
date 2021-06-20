@@ -46,6 +46,15 @@
   text-decoration: none;
  }
 
+
  .sale-status {
+  color: green;
+}
+ 
+ #error_explanation {
+  color: red;
+ }
+ 
+ #notice {
   color: green;
  }
