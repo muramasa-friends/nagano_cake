@@ -8,4 +8,8 @@ class Order < ApplicationRecord
 
   validates :payment_amount, :payment_method, :shipping_fee, :status, :postal_code, :name, :address, presence: true
   validates :postal_code, length: {is:7}
+
+  def send_to
+    "〒" + self.postal_code + " " + self.address + " " + self.name
+  end
 end
