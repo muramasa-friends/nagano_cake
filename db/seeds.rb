@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
+p "create Customers"
 Customer.create!(
   last_name: '佐藤',
   first_name: '愛',
@@ -40,10 +44,17 @@ Customer.create!(
   telephone_number: '3333333333',
 )
 
+
+p "create Genres"
 Genre.create!(
   name: "ケーキ"
   )
 
+Genre.create!(
+  name: "プリン"
+  )
+
+p "create Items"
 Item.create!(
       name: 'ケーキ',
       introduction: '新鮮なイチゴを使用しています。',
@@ -53,9 +64,22 @@ Item.create!(
       genre_id: 1
 )
 
-Address.create!(
-  customer_id: 1,
-  postal_code: "0000000",
-  address: "大阪府大阪市",
-  name: "佐々木希"
-  )
+Item.create!(
+      name: 'プリン',
+      introduction: 'なめらかな食感と濃厚な味わいのカスタードプリンです。',
+      price: 300,
+      image: File.open('./app/assets/images/img/pudding.jpg'),
+      is_active: false,
+      genre_id: 2
+)
+
+10.times do |n|
+  Item.create!(
+    name: "ケーキ#{n + 1}",
+    introduction: '新鮮なイチゴを使用しています。',
+    price: 100,
+    image: File.open('./app/assets/images/img/no_image.jpg'),
+    is_active: true,
+    genre_id: 1
+    )
+end
