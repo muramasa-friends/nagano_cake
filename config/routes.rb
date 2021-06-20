@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   resources :customers, only: [:show, :edit, :update] do
     resources :cart_items, only: [:index, :create, :update, :destroy]
     delete 'cart_items' => "cart_items#destroy_all"
+    member do
+      get 'quit'
+      patch 'withdraw'
+    end
   end
-  get 'customers/quit' => "customers#quit"
-  patch 'customers/:id/withdraw' => "customers#withdraw"
 
   resources :items, only: [:index, :show]
 
@@ -32,7 +34,7 @@ Rails.application.routes.draw do
     end
    end
 end
-  
+
   # namespace :admin do
   #   get 'genres/index'
   #   get 'genres/edit'
