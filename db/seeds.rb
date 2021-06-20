@@ -49,6 +49,13 @@ Item.create!(
       introduction: '新鮮なイチゴを使用しています。',
       price: 100,
       image: File.open('./app/assets/images/img/cake.jpg'),
-      is_active: 0,
+      is_active: true,
       genre_id: 1
 )
+
+Address.create!(
+  customer_id: 1,
+  postal_code: "0000000",
+  address: "大阪府大阪市",
+  name: "佐々木希"
+  )
