@@ -19,7 +19,17 @@ class CustomersController < ApplicationController
   end
 
   def quit
+    @customer = Customer.find(params[:id])
   end
+
+  def withdraw
+    @customer = Customer.find(current_customer.id)
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+
+
 
   private
 
@@ -33,4 +43,5 @@ class CustomersController < ApplicationController
       redirect_to root_path
     end
   end
+
 end
