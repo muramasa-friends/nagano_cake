@@ -71,4 +71,4 @@ gem 'jquery-rails'
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-
+gem 'pry-byebug'
