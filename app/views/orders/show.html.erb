@@ -34,7 +34,7 @@
           <tbody>
             <tr>
               <td class="col-3 table-active">商品合計</td>
-              <td></td>
+              <td><%= (@order.payment_amount - @order.shipping_fee).to_s(:delimited) %></td>
             </tr>
             <tr>
               <td class="col-3 table-active">配送料</td>
@@ -66,7 +66,7 @@
               <td><%= order_item.item.name %></td>
               <td><%= order_item.price %></td>
               <td><%= order_item.amount %></td>
-              <td><%= @sub_total %></td>
+              <td><%= (order_item.price * order_item.amount).to_s(:delimited) %></td>
             </tr>
             <% end %>
           </tbody>
