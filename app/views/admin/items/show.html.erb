@@ -1,2 +1,42 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<h5 class='offset-md-2 mt-4'>商品詳細</h5>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto mt-5">
+      <div class="float-left pr-5">
+        <%= attachment_image_tag @item, :image, size: '250x200', format: 'jpeg', fallback: "img/no_image.jpg" %>
+      </div>
+
+      <div class="float-right">
+        <div class="field">
+          <%= label_tag :name, "商品名", class: "col-6" %>
+          <%= @item.name %>
+        </div>
+        <div class="field d-flex">
+          <%= label_tag :introduction, "商品説明", class: "col-6" %>
+          <div class="col-10">
+            <%= @item.introduction %>
+          </div>
+        </div>
+        <div class="field">
+          <%= label_tag :genre, "ジャンル", class: "col-6" %>
+          <%= @item.genre.name %>
+        </div>
+        <div class="field">
+          <%= label_tag :price, "税込価格", class: "col-6" %><br>
+          <%= label_tag :price, "(税抜価格)", class: "col-6" %>
+          <%= @tax.to_i %>
+          （<%= @item.price %>）円
+        </div>
+        <div class="field d-flex">
+          <%= label_tag :is_active, "販売ステータス", class: "col-6" %>
+          <div class="sale-status">
+            <%= @item.is_active == true ? "販売中" : "販売停止中" %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success px-4 mt-4 offset-md-4" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
