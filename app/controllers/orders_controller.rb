@@ -9,16 +9,15 @@ class OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @order_items = current_customer.order_item
-    @order.payment_method = params[:order][:payment_method]
+    @cart_items = current_customer.cart_items.all
+
       if params[:order][:address_option] == "0"
         @order.postal_code = current_customer.postal_code
         @order.address = current_customer.address
-        @order.name = current_customer.name
+        @order.name = current_customer.full_name
 
       elsif params[:order][:address_option] == "1"
-       @sta = params[:order][:address].to_i
-       @address = Address.find(@sta)
+       @address = Address.find(params[:order][:address_id])
        @order.postal_code = @address.postal_code
        @order.address = @address.address
        @order.name = @address.name
@@ -31,12 +30,21 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @cart_item = Customer.cart_item
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     if @order.save
-      redirect_to order_path(@order)
+      @cart_items = current_customer.cart_items.all
+      @cart_items.each do |cart_item|
+        @order_items = @order.order_items.new
+        @order_items.item_id = cart_item.item.id
+        @order_items.amount = cart_item.amount
+        @order_items.price = (cart_item.item.price * 0.1 + cart_item.item.price)
+        @order_items.save
+      end
+      current_customer.cart_items.destroy_all
+      redirect_to orders_complete_path
     else
-      render new
+      render 'confirm'
     end
   end
 
@@ -50,7 +58,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :name, :address, :shipping_fee, :payment_amount, :item_id, :amount, :price)
+    params.require(:order).permit(:shipping_fee, :payment_amount, :payment_method, :status, :postal_code, :name, :address,:item_id, :price, :amount)
   end
 
   def address_params

@@ -3,25 +3,23 @@
 <div class="container">
   <div class="row mt-4">
     <h5 class="offset-2"><strong>支払方法</strong></h5>
-    <%= form_with model: @order, url: orders_confirm_path(@order), method: :post, local: true do |f| %>
+    <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
       <div class="form-group col-6">
         <div class="radio-inline">
-          <%= f.radio_button :payment_method, '0', checked: true %>
+          <%= f.radio_button :payment_method, "クレジットカード", checked: true %>
           <%= f.label :payment_method, "クレジットカード" %>
         </div>
         <div class="radio-inline">
-          <%= f.radio_button :payment_method, '1' %>
+          <%= f.radio_button :payment_method, "銀行振込" %>
           <%= f.label :payment_method, "銀行振込" %>
         </div>
       </div>
 
       <h5><strong>お届け先</strong></h5>
         <div class="form-group d-flex">
-          <div class="col-5">
-          <%= f.radio_button :address_option, 0, checked: "checked" %>
-          <%= f.label :address, "ご自身の住所" %><br>
-          </div>
-          <div class="">
+          <%= f.radio_button :address_option, 0, checked: true %>
+          <%= f.label :address, "ご自身の住所", class: 'col-md-7 col-sm-8' %>
+          <div class="col-md-10 col-sm-11">
           <%= @customer.postal_code %><%= @customer.address %><br>
           <%= @customer.full_name %>
           </div>
@@ -29,12 +27,12 @@
 
         <div class="form-group d-flex">
           <%= f.radio_button :address_option, 1 %>
-          <%= f.label :address, "登録済住所から選択", class: 'col-md-7 col-sm-8' %>
-          <%= f.collection_select :address , @customer.addresses, :id, :address %>
+          <%= f.label :address_id, "登録済住所から選択", class: 'col-md-7 col-sm-8' %>
+          <%= f.collection_select :address_id, Address.where(customer_id: current_customer.id), :id, :full_address, { include_blank: '選択してください'} %>
         </div>
 
         <%= f.radio_button :address_option, 2 %>
-        <%= f.label :address, "新しいお届け先" %>
+        <%= f.label :address, "新しいお届け先", class: 'col-md-7 col-sm-8' %>
         <div class='form-group d-flex'>
           <%= f.label :postal_code, '郵便番号(ハイフンなし)', class: 'col-md-7 col-sm-8' %>
           <%= f.text_field :postal_code, placeholder: '0000000', class: 'form-control col-md-3 col-sm-8' %>
