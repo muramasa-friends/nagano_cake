@@ -10,3 +10,4 @@ class OrderItem < ApplicationRecord
     self.price * self.amount
   end
 end
+

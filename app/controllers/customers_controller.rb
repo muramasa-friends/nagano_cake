@@ -21,6 +21,8 @@ class CustomersController < ApplicationController
   def quit
   end
 
+
+
   private
 
   def customer_params
@@ -33,4 +35,5 @@ class CustomersController < ApplicationController
       redirect_to root_path
     end
   end
+
 end

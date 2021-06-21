@@ -103,7 +103,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     execjs (2.8.1)
-    ffi (1.15.1)
+    ffi (1.15.3)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -305,7 +305,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   pry-byebug
   puma (~> 3.11)
-  rails (~> 5.2.6)
+  rails (~> 5.2.5)
   rails-i18n (~> 5.1)
   refile!
   refile-mini_magick
