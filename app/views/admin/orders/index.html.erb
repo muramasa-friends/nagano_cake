@@ -11,7 +11,6 @@
       </tr>
     </thead>
     <tbody>
-      <% total_amount = 0 %>
       <% @orders.each do |order| %>
         <% customer = Customer.find(order.customer_id) %>
         <td>
