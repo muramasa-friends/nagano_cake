@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'customers/quit' => "customers#quit"
   patch 'customers/:id/withdraw' => "customers#withdraw"
 
-  resources :items, only: [:index, :show,]
+  resources :items, only: [:index, :show, :create]
 
   resources :orders, only: [:index, :show, :new, :create]
   get 'orders/complete' => "orders#complete"

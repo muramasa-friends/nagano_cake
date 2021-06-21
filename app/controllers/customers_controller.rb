@@ -4,8 +4,10 @@ class CustomersController < ApplicationController
   end
 
   def edit
+    
   end
 
   def quit
+    
   end
 end
