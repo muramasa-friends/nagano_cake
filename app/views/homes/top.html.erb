@@ -11,10 +11,27 @@
   </div>
 </div>
 
-<h2>新着商品</h2>
-  <% @items.first(4).each do |item| %>
-    <%= attachment_image_tag item, :image, :fill, 20, 30, format: 'jpeg', fallback: "img/no_image.jpg" %>
-    <%= item.name %>
-    <%= item.price %>
-  <% end %>
-<p><%= link_to "全ての商品を見る>", items_path, class: "text-right" %></p>
+<h2 class="offset-md-3">新着商品</h2>
+<div class="cotainer">
+  <div class="row">
+    <div class="mx-auto d-flex">
+      <% @items.first(4).each do |item| %>
+        <div class="mx-3">
+          <%= attachment_image_tag item, :image, size: '200x150', format: 'jpeg', fallback: "img/no_image.jpg" %><br>
+          <div class="my-3">
+            <%= item.name %><br>
+          </div>
+          ¥<%= (item.price).to_s(:delimited) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="cotainer">
+  <div class="row">
+    <div class="text-right">
+      <%= link_to "全ての商品を見る>", items_path %>
+    </div>
+  </div>
+</div>
