@@ -7,12 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Genre.create!(
   name: "ケーキ"
   )
 =======
 >>>>>>> origin/develop
 
+=======
+>>>>>>> f564b850034dfce3df243d72a683606d909bfdf1
 
 
 p "create Customers"
@@ -51,7 +54,10 @@ Customer.create!(
 )
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> f564b850034dfce3df243d72a683606d909bfdf1
 
 p "create Genres"
 Genre.create!(
@@ -92,6 +98,7 @@ Item.create!(
     )
 end
 
+<<<<<<< HEAD
 p "create CartItems"
 CartItem.create!(
       customer_id: 1,
@@ -109,3 +116,6 @@ CartItem.create!(
       amount: 3
 )
 >>>>>>> origin/develop
+=======
+
+>>>>>>> f564b850034dfce3df243d72a683606d909bfdf1

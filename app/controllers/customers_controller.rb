@@ -2,12 +2,16 @@ class CustomersController < ApplicationController
     before_action :ensure_correct_customer
 
   def show
+<<<<<<< HEAD
     
   end
 
   def edit
     
     @customer = Customer.find(params[:id])
+=======
+    customer-item-show    @customer = Customer.find(params[:id])
+>>>>>>> f564b850034dfce3df243d72a683606d909bfdf1
   end
 
   def edit
