@@ -84,3 +84,19 @@ Item.create!(
     )
 end
 
+p "create CartItems"
+CartItem.create!(
+      customer_id: 1,
+      item_id: 1,
+      amount: 1
+)
+CartItem.create!(
+      customer_id: 1,
+      item_id: 2,
+      amount: 2
+)
+CartItem.create!(
+      customer_id: 1,
+      item_id: 3,
+      amount: 3
+)

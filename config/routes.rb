@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
 
-  resources :orders, only: [:index, :show, :new, :create]
-  get 'orders/complete' => "orders#complete"
+  post 'orders/confirm' => "orders#confirm"
   get 'orders/confirm' => "orders#confirm"
+  get 'orders/complete' => "orders#complete"
+  resources :orders, only: [:index, :show, :new, :create]
 
   resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
@@ -32,7 +33,9 @@ Rails.application.routes.draw do
     end
    end
 end
-  
+
+
+  # ====================controller作成時に自動生成されたルーティング================================
   # namespace :admin do
   #   get 'genres/index'
   #   get 'genres/edit'
