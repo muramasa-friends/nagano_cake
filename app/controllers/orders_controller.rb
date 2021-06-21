@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
         @order_items = @order.order_items.new
         @order_items.item_id = cart_item.item.id
         @order_items.amount = cart_item.amount
-        @order_items.price = (cart_item.item.price * 0.1 + cart_item.item.price)
+        @order_items.price = cart_item.item.price * 1.1
         @order_items.save
       end
       current_customer.cart_items.destroy_all
