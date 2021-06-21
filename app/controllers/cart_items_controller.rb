@@ -1,5 +1,7 @@
 class CartItemsController < ApplicationController
   def index
+    @cart_items = CartItem.where(customer_id: current_customer)
+    @numbers = Array.new(10){|i| i + 1}
   end
 
   def create
