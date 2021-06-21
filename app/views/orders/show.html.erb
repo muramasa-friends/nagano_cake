@@ -1,8 +1,7 @@
 <h5 class='offset-md-2 mt-4'>注文履歴詳細</h5>
 <div class="container">
   <div class="row">
-    <div class="mt-5">
-      <div class="float-left pr-3">
+      <div class="col-md-7 pr-3">
         <p><strong>注文情報</strong></p>
         <table class="table table-bordered">
           <tbody>
@@ -19,23 +18,23 @@
             </tr>
             <tr>
               <td class="col-3 table-active">支払方法</td>
-              <td><%= @customer.payment_method %></td>
+              <td><%= @order.payment_method %></td>
             </tr>
             <tr>
               <td class="col-3 table-active">ステータス</td>
-              <td><%= @customer.status %></td>
+              <td><%= @order.status %></td>
             </tr>
           </tbody>
-      </table>
+        </table>
       </div>
 
-      <div class="float-right">
+      <div class="col-md-5">
         <p><strong>請求情報</strong></p>
         <table class="table table-bordered">
           <tbody>
             <tr>
               <td class="col-3 table-active">商品合計</td>
-              <td><%= @order.shipping_fee %></td>
+              <td></td>
             </tr>
             <tr>
               <td class="col-3 table-active">配送料</td>
@@ -43,34 +42,35 @@
             </tr>
             <tr>
               <td class="col-3 table-active"><strong>ご請求額</strong></td>
-              <td><%= @order.payment_amount %></td>
+              <td><%= @order.payment_amount.to_s(:delimited) %></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
     <div class="row">
-      <div class="float-left pr-3">
+      <div class="col-md-10">
         <p><strong>注文内容</strong></p>
         <table class="table table-bordered">
-          <thead>
+          <thead class="thead-light">
             <tr>
-              <th>商品</th>
-              <th>単価（税込）</th>
-              <th>個数</th>
-              <th>小計</th>
+              <th class="font-weight-normal col-5">商品</th>
+              <th class="font-weight-normal col-3">単価（税込）</th>
+              <th class="font-weight-normal col-2">個数</th>
+              <th class="font-weight-normal col-2">小計</th>
             </tr>
           </thead>
           <tbody>
             <% @order_items.each do |order_item| %>
             <tr>
-              <td><%= oder_item.item.name %></td>
-              <td><%= (oder_item.item.price) * 1.1).to_i %></td>
-              <td><%= oder_item.amount %></td>
+              <td><%= order_item.item.name %></td>
+              <td><%= order_item.price %></td>
+              <td><%= order_item.amount %></td>
               <td><%= @sub_total %></td>
             </tr>
+            <% end %>
           </tbody>
-      </table>
+        </table>
       </div>
     </div>
   </div>

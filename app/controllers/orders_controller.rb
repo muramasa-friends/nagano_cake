@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @cart_items = current_customer.cart_items.all
+    @cart_items = CartItem.all
 
       if params[:order][:address_option] == "0"
         @order.postal_code = current_customer.postal_code
@@ -49,6 +49,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_items = @order.order_items
   end
 
   def complete
