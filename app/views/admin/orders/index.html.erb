@@ -1,7 +1,7 @@
 
 <div class="container">
 <p>注文履歴一覧</p>
-  <table class="table col-md-8 mt-5 table-bordered">
+  <table class="table col-md-8 mt-5">
     <thead class="thead-light">
       <tr>
         <th>購入日時</th>
@@ -11,15 +11,17 @@
       </tr>
     </thead>
     <tbody>
+      <% total_amount = 0 %>
       <% @orders.each do |order| %>
         <% customer = Customer.find(order.customer_id) %>
         <td>
           <%= link_to order.created_at.strftime('%Y/%m/%d %T'), admin_order_path(order) %>
         </td>
         <td><%= customer.full_name %></td>
-        <td><%= OrderItem.where(order_id: order.id).size %></td>
+        <td><%= order.order_items.sum(:amount) %></td>
         <td><%= order.status %></td>
       <% end %>
+      <%= paginate @orders %>
     </tbody>
   </table>
 </div>
