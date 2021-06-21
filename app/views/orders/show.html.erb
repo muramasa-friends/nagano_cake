@@ -1,2 +1,77 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<h5 class='offset-md-2 mt-4'>注文履歴詳細</h5>
+<div class="container">
+  <div class="row">
+    <div class="mt-5">
+      <div class="float-left pr-3">
+        <p><strong>注文情報</strong></p>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="col-3 table-active">注文日</td>
+              <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+            </tr>
+            <tr>
+              <td class="col-3 table-active">配送先</td>
+              <td><%= @order.postal_code %><br>
+                  <%= @order.address %><br>
+                  <%= @order.name %>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-3 table-active">支払方法</td>
+              <td><%= @customer.payment_method %></td>
+            </tr>
+            <tr>
+              <td class="col-3 table-active">ステータス</td>
+              <td><%= @customer.status %></td>
+            </tr>
+          </tbody>
+      </table>
+      </div>
+
+      <div class="float-right">
+        <p><strong>請求情報</strong></p>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="col-3 table-active">商品合計</td>
+              <td><%= @order.shipping_fee %></td>
+            </tr>
+            <tr>
+              <td class="col-3 table-active">配送料</td>
+              <td><%= @order.shipping_fee %></td>
+            </tr>
+            <tr>
+              <td class="col-3 table-active"><strong>ご請求額</strong></td>
+              <td><%= @order.payment_amount %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="float-left pr-3">
+        <p><strong>注文内容</strong></p>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>商品</th>
+              <th>単価（税込）</th>
+              <th>個数</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order_items.each do |order_item| %>
+            <tr>
+              <td><%= oder_item.item.name %></td>
+              <td><%= (oder_item.item.price) * 1.1).to_i %></td>
+              <td><%= oder_item.amount %></td>
+              <td><%= @sub_total %></td>
+            </tr>
+          </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
