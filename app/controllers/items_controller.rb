@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all.order(created_at: :asc)
-    @item_page = @items.page(params[:page]).per(8)
+    @item_page = @items.page(params[:page]).per(2)
   end
 
   def show
