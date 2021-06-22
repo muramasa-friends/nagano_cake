@@ -7,8 +7,6 @@ class CartItemsController < ApplicationController
   def create
     @cart_item = current_user.cart_items.build(cart_item_params)
     @cart_items = current_user.cart_items.all
-    # @cart_item = CartItem.new(cart_item_params)
-    # @cart_item.customer_id = current_customer.id 
     @cart_items.each do |cart_item|
       if cart_item.item_id == @cart_item.item_id
         new_amount = @cart_item.amount + @cart_item.amount
@@ -21,8 +19,6 @@ class CartItemsController < ApplicationController
   end
   
   def update
-    # @cart_item.update(amount: params[:amount].to_i)
-    # redirect_to current_cart
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
     redirect_to request.referer
