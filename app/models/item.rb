@@ -10,4 +10,18 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
+<<<<<<< HEAD
+=======
+
+
+  def add_tax_price
+    (self.price * 1.1).round
+  end
+
+  def sub_total
+    price * amount
+  end
+  
+
+>>>>>>> origin/develop
 end

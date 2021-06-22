@@ -5,9 +5,15 @@ class OrderItem < ApplicationRecord
   belongs_to :order
 
   validates :amount, :price, :production_status, presence: true
+<<<<<<< HEAD
 
   def subtotal
     self.price * self.amount
+=======
+  
+  def sub_total
+    price * amount
+>>>>>>> origin/develop
   end
 end
 
