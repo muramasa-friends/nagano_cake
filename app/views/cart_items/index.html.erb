@@ -1,4 +1,6 @@
 <div class="container">
+  
+  <%= link_to 'カートを削除する', customer_cart_items_path(current_customer.id), method: :delete, class:"btn btn-sm btn-danger" %>
   <div class="row mt-5">
     <table class="table col-md-8">
       <thead class="thead-light">
@@ -11,28 +13,41 @@
         </tr>
       </thead>
       <tbody>
+        
+        <% subtotal_price = 0 %>
+        <% total_price = 0 %>
+        
         <% @cart_items.each do |cart_item| %>
           <% item = Item.find(cart_item.item_id) %>
-          <% total_price = 0 %>
-          <tr>
-            <td>
-              <%= attachment_image_tag item, :image, :fill, 50, 50, format: 'jpg' %>
-              <%= item.name %>
-            </td>
-            <td><%= item.price %></td>
-            <td>
-              <%= form_with model:cart_item, url: customer_cart_item_path(current_customer, cart_item), local: true do |f| %>
-                <%= f.select :amount, options_for_select(@numbers, {selected: cart_item.amount}) %>
-                <%= f.submit '変更', class: "btn btn-sm btn-success"%>
-              <% end%>
-            </td>
-            <td><%= item.price * cart_item.amount %></td>
-            <td><%= link_to '削除する', customer_cart_item_path(current_customer, cart_item), method: :delete, class:"btn btn-sm btn-danger" %></td>
-          </tr>
+          <% subtotal_price = item.price * cart_item.amount * 1.1 %>
+            <tr>
+              <td>
+                <%= attachment_image_tag item, :image, :fill, 50, 50, format: 'jpg' %>
+                <%= item.name %>
+              </td>
+              <td><%= item.price %></td>
+              <td>
+                <%= form_with model:cart_item, url: customer_cart_item_path(current_customer, cart_item), local: true do |f| %>
+                  <%= f.select :amount, options_for_select(@numbers, {selected: cart_item.amount}) %>
+                  <%= f.submit '変更', class: "btn btn-sm btn-success"%>
+                <% end%>
+              </td>
+              <td><%= subtotal_price %></td>
+              <td><%= link_to '削除する', customer_cart_item_path(current_customer, cart_item), method: :delete, class:"btn btn-sm btn-danger" %></td>
+            </tr>
+          <% total_price += subtotal_price %>
         <% end %>
       </tbody>
     </table>
-
-    <dt class="col-6 py-1">合計金額</dt>
+  </div>
+  
+  <div class="row">
+    <div>
+      <%= link_to '買い物を続ける', new_order_path, class:"btn btn-primary"%>
+    </div>
+    <dl class="row border col-3 offset-md-4">
+      <dt class="col-6 bg-light">合計金額</dt>
+      <dd class="col-6"><%= total_price %></dd>
+    </dl>
   </div>
 </div>
