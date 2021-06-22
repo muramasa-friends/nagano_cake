@@ -2,6 +2,10 @@ class CustomersController < ApplicationController
     before_action :ensure_correct_customer
 
   def show
+
+  end
+
+  def edit
     @customer = Customer.find(params[:id])
   end
 
@@ -27,6 +31,7 @@ class CustomersController < ApplicationController
     @customer.update(is_deleted: true)
     reset_session
     redirect_to root_path
+
   end
 
 
