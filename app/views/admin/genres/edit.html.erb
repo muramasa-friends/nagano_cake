@@ -1,5 +1,6 @@
 <h5 class='offset-md-2'>ジャンル編集</h5>
 <div class='container'>
+  <%= render 'layouts/errors', obj: @genre %>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 pt-4">
       <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
