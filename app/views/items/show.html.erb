@@ -15,7 +15,7 @@
       </div>
       <%= render 'layouts/errors', obj: @item %>
       <div class="row">
-        <%= form_with model: @cart_item, url: customer_cart_items_path(current_customer), method: :post, local: true do |f| %>
+        <%= form_with model: @cart_item, url: customer_cart_items_path(current_customer, @item), method: :post, local: true do |f| %>
           <%= f.hidden_field :item_id, value: @item.id %>
           <%= f.select :amount, options_for_select((1..10).to_a), {include_blank: "個数選択"}, class:"form-control" %>
           <%= f.submit "カートに入れる", class:"btn btn-success" %>

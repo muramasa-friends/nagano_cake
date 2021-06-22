@@ -6,9 +6,11 @@
   <div class="row">
     <% @item_page.each do |item| %>
       <div class="flex-column col-3 col-sm-3">
+        <%= link_to item_path(item.id) do %>
         <div><%= attachment_image_tag item, :image, :fill, 250, 200, format: 'jpeg' %></div>
         <div><%= item.name %></div>
         <div>¥<%= item.price.to_s(:delimited, delimiter: ',') %></div>
+        <% end %>
       </div>
     <% end %>
   </div>
