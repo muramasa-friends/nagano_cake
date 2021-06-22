@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 <h1>Admin::Customers#show</h1>
 <p>Find me in app/views/admin/customers/show.html.erb</p>
-=======
 <h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
 
 <table class="table">
@@ -44,12 +42,11 @@
         </th>
     </tr>
 </table>
-    <div class="row">
-        <div>
-            <%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-sm btn-success edit_admin_customer_#{@customer.id}" %>
-        </div>
-        <div>
-            <%= link_to '注文履歴一覧を見る', admin_orders_path, class: "btn btn-sm btn-primary" %>
-        </div>
+<div class="row">
+    <div>
+        <%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-sm btn-success edit_admin_customer_#{@customer.id}" %>
     </div>
->>>>>>> origin/develop
+    <div>
+        <%= link_to '注文履歴一覧を見る', admin_orders_path, class: "btn btn-sm btn-primary" %>
+    </div>
+</div>

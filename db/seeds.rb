@@ -6,17 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Genre.create!(
-  name: "ケーキ"
-  )
-=======
->>>>>>> origin/develop
-
-=======
->>>>>>> f564b850034dfce3df243d72a683606d909bfdf1
-
 
 p "create Customers"
 Customer.create!(
@@ -52,12 +41,6 @@ Customer.create!(
   password: 'cccccccc',
   telephone_number: '3333333333',
 )
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> f564b850034dfce3df243d72a683606d909bfdf1
 
 p "create Genres"
 Genre.create!(
@@ -97,25 +80,3 @@ Item.create!(
     genre_id: 1
     )
 end
-
-<<<<<<< HEAD
-p "create CartItems"
-CartItem.create!(
-      customer_id: 1,
-      item_id: 1,
-      amount: 1
-)
-CartItem.create!(
-      customer_id: 1,
-      item_id: 2,
-      amount: 2
-)
-CartItem.create!(
-      customer_id: 1,
-      item_id: 3,
-      amount: 3
-)
->>>>>>> origin/develop
-=======
-
->>>>>>> f564b850034dfce3df243d72a683606d909bfdf1
