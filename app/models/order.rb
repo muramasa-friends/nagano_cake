@@ -20,4 +20,8 @@ class Order < ApplicationRecord
   validates :payment_amount, :payment_method, :shipping_fee, :status, :postal_code, :name, :address, presence: true
   validates :postal_code, length: {is:7}
 
+  def total_price
+		order_items.to_a.sum { |item| item.sub_total }
+	end
+
 end
