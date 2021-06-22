@@ -2,38 +2,42 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto mt-5">
-      <%= form_with model: @item, local:true do |f| %>
-        <div class="field">
-          <%= f.label :image, "商品画像", class: "col-3" %>
-          <%= f.attachment_field :image, class: "col-8" %>
-        </div>
-        <div class="field mt-2">
-          <%= f.label :name, "商品名", class: "col-3" %>
-          <%= f.text_field :name, class: "col-8" %>
-        </div>
-        <div class="field mt-2">
-          <%= f.label :introduction, "商品説明", class: "col-3" %>
-          <%= f.text_area :introduction, class: "col-8" %>
-        </div>
-        <div class="field mt-2">
-          <%= f.label :genre, "ジャンル", class: "col-3" %>
-          <%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] }, {}, {class: "col-8"} %>
-        </div>
-        <div class="field mt-2">
-          <%= f.label :price, "税抜価格", class: "col-3" %>
-          <%= f.text_field :price, class: "col-8" %>円
-        </div>
-        <div class="field mt-2">
-          <%= f.label :is_active, "販売ステータス", class: "col-4" %>
-          <%= f.radio_button :is_active, :true, checked: true %>
-          <%= f.label :is_active, '販売中', value: true %>
-          <%= f.radio_button :is_active, :false, checked: true %>
-          <%= f.label :is_active, '販売停止中', value: false %>
-        </div>
-        <div class="actions mt-2">
-          <%= f.submit "変更を保存", class: "btn btn-success px-4 offset-md-4" %>
-        </div>
-      <% end %>
+      <table class="item_edit_form">
+        <%= form_with model: @item, local:true do |f| %>
+          <tr>
+            <td><%= f.label :image, "商品画像" %></td>
+            <td><%= f.attachment_field :image %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :name, "商品名" %></td>
+            <td><%= f.text_field :name, size: "30", class: "px-1" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :introduction, "商品説明" %></td>
+            <td><%= f.text_area :introduction, size: "30x5", class: "px-1" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :genre, "ジャンル" %></td>
+            <td><%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] }, {}, {class: "genre_width px-1"} %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :price, "税抜価格" %></td>
+            <td><%= f.text_field :price, size: "30", class: "px-1" %> 円</td>
+          </tr>
+          <tr>
+            <td><%= f.label :is_active, "販売ステータス" %></td>
+            <td>
+              <%= f.radio_button :is_active, :true, checked: true %>
+              <%= f.label :is_active, '販売中', value: true %>
+              <%= f.radio_button :is_active, :false, checked: true %>
+              <%= f.label :is_active, '販売停止中', value: false %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= f.submit "変更を保存", class: "btn btn-success px-4 offset-md-10" %></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>
