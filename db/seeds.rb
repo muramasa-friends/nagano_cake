@@ -42,16 +42,41 @@ Customer.create!(
   telephone_number: '3333333333',
 )
 
+p "create Genres"
 Genre.create!(
   name: "ケーキ"
   )
 
+Genre.create!(
+  name: "プリン"
+  )
+
+p "create Items"
 Item.create!(
       name: 'ケーキ',
       introduction: '新鮮なイチゴを使用しています。',
       price: 100,
       image: File.open('./app/assets/images/img/cake.jpg'),
-      is_active: 0,
+      is_active: true,
       genre_id: 1
 )
 
+Item.create!(
+      name: 'プリン',
+      introduction: 'なめらかな食感と濃厚な味わいのカスタードプリンです。',
+      price: 300,
+      image: File.open('./app/assets/images/img/pudding.jpg'),
+      is_active: false,
+      genre_id: 2
+)
+
+10.times do |n|
+  Item.create!(
+    name: "ケーキ#{n + 1}",
+    introduction: '新鮮なイチゴを使用しています。',
+    price: 100,
+    image: File.open('./app/assets/images/img/no_image.jpg'),
+    is_active: true,
+    genre_id: 1
+    )
+end
