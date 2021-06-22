@@ -7,8 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
-
 p "create Customers"
 Customer.create!(
   last_name: '佐藤',
@@ -43,7 +41,6 @@ Customer.create!(
   password: 'cccccccc',
   telephone_number: '3333333333',
 )
-
 
 p "create Genres"
 Genre.create!(
@@ -83,20 +80,3 @@ Item.create!(
     genre_id: 1
     )
 end
-
-p "create CartItems"
-CartItem.create!(
-      customer_id: 1,
-      item_id: 1,
-      amount: 1
-)
-CartItem.create!(
-      customer_id: 1,
-      item_id: 2,
-      amount: 2
-)
-CartItem.create!(
-      customer_id: 1,
-      item_id: 3,
-      amount: 3
-)
