@@ -18,10 +18,10 @@
           <td><%= customer.email %></td>
 
           <td>
-            <% if customer.is_deleted == true %>
-              <%= "退会" %>
+            <% if customer.is_deleted %>
+              <div class="text-muted"><strong><%= "退会" %></strong></div>
             <% else %>
-              <%= "有効" %>
+              <div class="text-success"><strong><%= "有効" %></strong></div>
             <% end %>
           </td>
 

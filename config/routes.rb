@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update] do
       resources :order_items, only: [:update]
     end
-   end
+  end
 end
 
 

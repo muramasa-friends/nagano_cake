@@ -24,4 +24,7 @@ class Order < ApplicationRecord
 		order_items.to_a.sum { |item| item.sub_total }
 	end
 
+  def send_to
+    "〒" + self.postal_code + " " + self.address + " " + self.name
+  end
 end
