@@ -8,4 +8,7 @@ class Address < ApplicationRecord
     self.postal_code + self.address + self.name
   end
 
+
+  validates :address, :name, presence: true
+  validates :postal_code, presence: true, length: { is: 7 }
 end
