@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 p "create Customers"
 Customer.create!(
   last_name: '佐藤',
@@ -79,4 +80,3 @@ Item.create!(
     genre_id: 1
     )
 end
-
