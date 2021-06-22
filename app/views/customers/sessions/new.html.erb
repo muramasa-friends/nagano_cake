@@ -1,8 +1,8 @@
-<h5 class='offset-md-2'>ログイン</h5>
 <div class='container'>
-  <h6 class='offset-md-2 pt-1'>会員の方はこちらからログイン</h6>
+  <h2 class='offset-md-1 page_title my-4'>ログイン</h2>
+  <h6 class='offset-md-2'><span class="sub_title">会員の方はこちらからログイン</span></h6>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 pt-1 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 pt-4 mx-auto">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label :email, "メールアドレス", class: "col-md-4" %>
@@ -20,7 +20,7 @@
       <% end %>
     </div>
   </div>
-  <h6 class='offset-md-2 pt-5'>会員登録がお済みでない方</h6>
+  <h6 class='offset-md-2 sub_title mt-5'>会員登録がお済みでない方</h6>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 pt-1 mx-auto">
       <p><%= link_to "こちら", new_registration_path(resource_name) %>　から新規登録を⾏ってください。</p>

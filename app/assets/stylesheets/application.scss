@@ -80,3 +80,15 @@
   border-collapse: separate;
   border-spacing: 0px 8px;
 }
+
+.page_title{
+ display: inline-block;
+ font-size: 20px;
+ padding: 2px 10px;
+ background: linear-gradient(transparent 70%, #df5a5c 70%);
+}
+
+.sub_title{
+ font-size: 16px;
+ color: #df5a5c;
+}
