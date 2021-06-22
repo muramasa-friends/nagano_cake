@@ -4,17 +4,7 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
 
-        <!-- エラーメッセージ-->
-        <% if @item.errors.any? %>
-          <div id ="error_explanation">
-            <h3><%= @item.errors.count %> error prohibited this book from being saved:</h3>
-            <ul>
-              <% @item.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+        <%= render 'layouts/errors', obj: @item %>
 
         <div class="form-group row">
           <%= f.label :image, "商品画像", class: "col-sm-4 col-form-label" %>
