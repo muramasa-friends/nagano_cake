@@ -21,6 +21,7 @@ class Customers::SessionsController < Devise::SessionsController
 
   protected
 
+
   def reject_customer
     @customer = Customer.find_by(email: params[:customer][:email].downcase)
     if @customer
