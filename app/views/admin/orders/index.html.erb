@@ -21,7 +21,9 @@
           <td><%= order.status %></td>
         </tr>
       <% end %>
-      <%= paginate @orders %>
+      <div>
+        <%= paginate @orders %>
+      </div>
     </tbody>
   </table>
 </div>
