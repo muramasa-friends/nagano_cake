@@ -41,13 +41,13 @@
             <td><%= order_item.item.name %></td>
             <td><%= order_item.price %></td>
             <td><%= order_item.amount %></td>
-            <td><%= order_item.subtotal %></td>
+            <td><%= order_item.sub_total %></td>
             <%= form_with model:order_item, url: admin_order_order_item_path(order_item.order_id, order_item), local: true do |f| %>
               <td><%= f.select :production_status, options_for_select(OrderItem.production_statuses.keys, :selected => order_item.production_status) %></td>
               <td><%= f.submit '更新', class: 'btn btn-sm btn-success' %></td>
             <% end %>
           </tr>
-          <% @total += order_item.subtotal %>
+          <% @total += order_item.sub_total %>
         <% end %>
       </tbody>
     </table>
