@@ -1,5 +1,5 @@
-<header>
-  <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
+<header class="bg-light">
+  <nav class="navbar navbar-expand-md sticky-top navbar-light">
     <div class="container">
       <a class="navbar-brand" href="/"><span>Nagano Cake</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,4 +29,16 @@
       </div>
     </div>
   </nav>
+    <% if admin_signed_in? %>
+      <div class="container">
+        <div class="text-right">
+          <%= form_with url: '#', method: :get, local: true do |f| %>
+            <%= f.text_field :content %>
+            <%= button_tag do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          <% end %>
+        </div>
+     </div>
+    <% end %>
 </header>
