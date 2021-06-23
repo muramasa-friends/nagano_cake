@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def top
-    @items = Item.all
+    @items = Item.all.order(id: "DESC")
   end
 
   def about
