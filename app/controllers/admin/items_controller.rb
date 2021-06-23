@@ -1,4 +1,6 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @items = Item.all
     @items = Item.page(params[:page]).per(10)
@@ -19,7 +21,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @tax = @item.price * 0.1 + @item.price
+    @tax = (@item.price * 1.1).to_i
   end
 
   def edit
