@@ -1,6 +1,5 @@
-<h5 class='offset-md-3 mt-5'>商品詳細</h5>
-
 <div class="container">
+  <h2 class='offset-md-2 page_title mt-4'>商品詳細</h2>
   <div class="row">
     <div class="mx-auto mt-5 d-flex">
       <div class="col-5 mr-4">
@@ -34,11 +33,11 @@
             <%= label_tag :is_active, "販売ステータス", class: "small" %>
           </td>
           <% if @item.is_active == true %>
-            <td class="status-green pl-4">
+            <td class="text-success pl-4">
               <strong>販売中</strong>
             </td>
           <% else %>
-            <td class="status-gray pl-4">
+            <td class="text-muted pl-4">
               <strong>販売停止中</strong>
             </td>
           <% end %>

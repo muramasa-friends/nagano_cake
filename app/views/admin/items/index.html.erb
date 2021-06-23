@@ -1,6 +1,6 @@
 <div class='container'>
   <div class="row col-12 col-md-10 col-lg-10 px-sm-0 pt-4 mx-auto">
-    <div class="col-3"><h5>商品一覧</h5></div>
+    <h2 class='page_title'>商品一覧</h2>
     <div class="col-3 ml-auto">
       <%= link_to new_admin_item_path, class: "float-sm-right" do %>
         <i class="fas fa-plus-circle fa-2x"></i>
@@ -28,16 +28,16 @@
               <td><%= item.genre.name %></td>
               <td>
                 <% if item.is_active == true %>
-                  <span class="status-green">販売中</span>
+                  <span class="text-success">販売中</span>
                 <% else %>
-                  <span class="status-gray">販売停止中</span>
+                  <span class="text-muted">販売停止中</span>
                 <% end %>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <div class="col-2 mx-auto">
+      <div>
         <%= paginate @items %>
       </div>
     </div>

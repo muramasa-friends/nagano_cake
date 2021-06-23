@@ -2,10 +2,10 @@
 
 <div class="container">
 
-  <h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員編集</h2>
-  
+  <h2 class='page_title my-4'><%= @customer.last_name %><%= @customer.first_name %>さんの会員編集</h2>
+
   <div class="form-horizontal">
-    <%= form_with model: @customer, local:true do |f| %>
+    <%= form_with model: @customer, url: admin_customer_path(@customer), local:true do |f| %>
     <div class="row">
       <%= f.label "氏名", class: "col-md-3" %>
       <div class="col-md-8 form-inline">
@@ -13,7 +13,7 @@
         <%= f.text_field :first_name, class:"form-control" %>
       </div>
     </div>
-    
+
     <div class="row pt-2">
       <%= f.label "フリガナ", class: "col-md-3" %>
       <div class="col-md-8 form-inline">
@@ -21,35 +21,35 @@
         <%= f.text_field :first_name_kana, class:"form-control" %>
       </div>
     </div>
-    
+
     <div class="row pt-2">
       <%= f.label :postal_code, "郵便番号", class:"col-md-3" %>
       <div class="col-md-3">
         <%= f.text_field :postal_code, class:"form-control" %>
       </div>
     </div>
-    
+
     <div class="row pt-2">
       <%= f.label :address, "住所", class:"col-md-3" %>
       <div class="col-md-7">
         <%= f.text_field :address, class:"form-control" %>
       </div>
     </div>
-    
+
     <div class="row pt-2">
       <%= f.label :telephone_number, "電話番号", class:"col-md-3" %>
       <div class="col-md-3">
         <%= f.text_field :telephone_number, class:"form-control" %>
       </div>
     </div>
-    
+
     <div class="row pt-2">
       <%= f.label :email, "メールアドレス", class:"col-md-3" %>
       <div class="col-md-3">
         <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
       </div>
     </div>
-    
+
     <div class="row pt-2">
       <%= f.label :is_deleted, "会員ステータス", class:"col-md-3" %>
       <div class="col-md-3">
@@ -59,7 +59,7 @@
         <%= f.label :is_deleted, '退会', value: true %>
       </div>
     </div>
-    
+
     <div>
       <div class="field pt-4 offset-md-3">
         <%= f.submit "変更を保存", class:"btn btn-success" %>
@@ -68,4 +68,3 @@
   </div>
   <% end %>
 </div>
-  
