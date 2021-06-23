@@ -20,7 +20,9 @@
         <td><%= order.order_items.sum(:amount) %></td>
         <td><%= order.status %></td>
       <% end %>
-      <%= paginate @orders %>
+      <div>
+        <%= paginate @orders %>
+      </div>
     </tbody>
   </table>
 </div>
