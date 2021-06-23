@@ -1,5 +1,5 @@
-<h5 class='offset-md-2'>注文情報確認</h5>
-
+<div class="container">
+<h2 class='page_title my-4'>注文情報確認</h2>
 <%= form_with model: @order, local:true do |f| %>
     <div class="container">
       <div class="row">
@@ -95,3 +95,4 @@
     </div>
     <%= f.submit "注文を確定する", class: "btn btn-success px-4 mt-4 offset-md-5" %>
 <% end %>
+</div>
