@@ -1,10 +1,10 @@
-<h5 class='offset-md-2 mt-4'>商品編集</h5>
 <div class="container">
+  <h2 class='offset-md-2 page_title mt-4'>商品編集</h2>
   <div class="row">
     <div class="mx-auto mt-5">
       <%= render 'layouts/errors', obj: @item %>
-      <table class="item_edit_form">
-        <%= form_with model: @item, url: admin_item_path, local:true do |f| %>
+      <table class="item_form">
+        <%= form_with model: @item, url: admin_item_path(@item), local:true do |f| %>
           <tr>
             <td><%= f.label :image, "商品画像" %></td>
             <td><%= f.attachment_field :image %></td>
@@ -29,9 +29,9 @@
             <td><%= f.label :is_active, "販売ステータス" %></td>
             <td>
               <%= f.radio_button :is_active, :true %>
-              <%= f.label :is_active, '販売中', value: true %>
+              <%= f.label :is_active, '販売中', class: "radio_btn", value: true %>
               <%= f.radio_button :is_active, :false %>
-              <%= f.label :is_active, '販売停止中', value: false %>
+              <%= f.label :is_active, '販売停止中', class: "radio_btn", value: false %>
             </td>
           </tr>
           <tr>

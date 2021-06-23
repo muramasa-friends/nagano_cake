@@ -1,5 +1,5 @@
-<header>
-  <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
+<header class="bg-light sticky-top">
+  <nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
       <a class="navbar-brand" href="/"><span>Nagano Cake</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,19 @@
           <li><%= link_to 'ログイン', new_customer_session_path, class: 'fas fa-sign-in-alt nav-link' %></li>
         <% end %>
         </ul>
-      </div>
     </div>
-  </nav>
+   </nav>
+   
+    <% if admin_signed_in? %>
+      <div class="container pb-2">
+        <div class="text-right">
+          <%= form_with url: '#', method: :get, local: true do |f| %>
+            <%= f.text_field :content %>
+            <%= button_tag do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          <% end %>
+        </div>
+     </div>
+    <% end %>
 </header>
