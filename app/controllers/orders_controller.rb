@@ -6,6 +6,10 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
+    @cart = @customer.cart_items
+    if @cart.empty?
+        redirect_to items_path, alert: "カートに商品が入っていません。"
+    end
   end
 
   def confirm
