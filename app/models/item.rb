@@ -11,6 +11,8 @@ class Item < ApplicationRecord
   validates :introduction, presence: true
   validates :price, presence: true
 
+
+
   def add_tax_price
     (self.price * 1.1).round
   end
@@ -18,5 +20,8 @@ class Item < ApplicationRecord
   def sub_total
     price * amount
   end
+
+
+
 
 end
