@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3 mb-4 bg-light"><h3>ショッピングカート</h3></div>
-    <div class="col-md-3 offset-md-6"><%= link_to "カートを空にする", customer_cart_items_path(current_customer.id), method: :delete, class:"btn btn-danger" %></div>
+    <h2 class='page_title my-4'>ショッピングカート</h2>
+    <div class="col-md-3 offset-md-6 mt-4"><%= link_to "カートを空にする", customer_cart_items_path(current_customer.id), method: :delete, class:"btn btn-danger" %></div>
   </div>
   <table class="table table-bordered">
     <thead class="thead-light">
