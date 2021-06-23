@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'home/about' => "homes#about"
 
   resources :customers, only: [:show, :edit, :update] do
-    resources :cart_items, only: [:index, :create, :update, :destroy]
     delete 'cart_items' => "cart_items#destroy_all"
+    resources :cart_items, only: [:index, :create, :update, :destroy]
     member do
       get 'quit'
       patch 'withdraw'
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update] do
       resources :order_items, only: [:update]
     end
-   end
+  end
 end
 
 
