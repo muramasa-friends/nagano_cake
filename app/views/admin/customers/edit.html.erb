@@ -3,6 +3,7 @@
 <div class="container">
 
   <h2 class='page_title my-4'><%= @customer.last_name %><%= @customer.first_name %>さんの会員編集</h2>
+  <div><%= render 'layouts/errors', obj: @customer %></div>
 
   <div class="form-horizontal">
     <%= form_with model: @customer, url: admin_customer_path(@customer), local:true do |f| %>
