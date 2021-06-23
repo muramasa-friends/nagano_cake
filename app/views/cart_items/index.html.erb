@@ -27,7 +27,7 @@
         <td>
           <%= form_with model: cart_item, url:customer_cart_item_path(current_customer, cart_item), local:true do |f| %>
           <div class="row ml-2">
-            <div><%= f.select :amount, options_for_select((1..10).to_a, {selected: cart_item.amount}), class:"form-control" %></div>
+            <div><%= f.select :amount, options_for_select((1..50).to_a, {selected: cart_item.amount}), class:"form-control" %></div>
             <div><%= f.submit "変更", class:"btn btn-success" %></div>
           </div>
           <% end %>
