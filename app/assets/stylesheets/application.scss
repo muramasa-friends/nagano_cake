@@ -27,15 +27,25 @@
   font-size: 60px;
  }
 
-  .top-visual {
-   background-image: url(img/cake.jpg);
-   background-size: cover;
+ .top-color {
+  background-color: #FFF0F5;
  }
 
- .top-visual-content {
-   background-color: #fff;
-   border-style: solid;
+  .top-visual {
+  background-image: url(img/Strawberry7.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
  }
+
+.top-visual-content{
+  width: 40%;
+  height: 500px;
+  text-align: center;
+  padding-top: 180px;
+  background-color: rgba(255,255,255,0.8);
+}
 
  .cake-image {
   height: 200px;
@@ -64,7 +74,7 @@
  height: 30px;
 }
 
-.item_edit_form {
+.item_form {
   border-collapse: separate;
   border-spacing: 0px 8px;
 }
