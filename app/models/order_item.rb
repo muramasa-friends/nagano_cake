@@ -5,8 +5,8 @@ class OrderItem < ApplicationRecord
   belongs_to :order
 
   validates :amount, :price, :production_status, presence: true
-  
   def sub_total
     price * amount
   end
 end
+
