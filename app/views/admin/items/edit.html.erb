@@ -4,7 +4,7 @@
     <div class="mx-auto mt-5">
       <%= render 'layouts/errors', obj: @item %>
       <table class="item_form">
-        <%= form_with model: @item, url: admin_item_path, local:true do |f| %>
+        <%= form_with model: @item, url: admin_item_path(@item), local:true do |f| %>
           <tr>
             <td><%= f.label :image, "商品画像" %></td>
             <td><%= f.attachment_field :image %></td>
