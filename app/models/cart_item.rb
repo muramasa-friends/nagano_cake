@@ -8,4 +8,8 @@ class CartItem < ApplicationRecord
     (self.item.price * 1.1).round
   end
 
+  def sub_total
+    (self.item.price * 1.1 * self.amount).round
+  end
+
 end
