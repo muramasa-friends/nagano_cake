@@ -111,3 +111,28 @@
  font-size: 16px;
  color: #df5a5c;
 }
+
+.btn-red {
+  color: #fff;
+  background-color: #df5a5c;
+  border-color: #df5a5c;
+}
+
+.btn-red:hover {
+  color: #fff;
+  background-color: #d93c3e;
+  border-color: #d93c3e;
+}
+
+.btn-outline-red {
+  color: #df5a5c;
+  background-color: transparent;
+  border-color: #df5a5c;
+}
+
+.btn-outline-red:hover {
+  color: #fff;
+  background-color: #df5a5c;
+  border-color: #df5a5c;
+}
+

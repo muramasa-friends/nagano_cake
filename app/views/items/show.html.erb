@@ -1,7 +1,7 @@
-<div class="container offset-3">
-  <div class="row">
+<div class="container">
+  <div class="row offset-md-3">
     <div>
-      <%= attachment_image_tag @item, :image, :fill, 250, 200 %>
+      <%= attachment_image_tag @item, :image, size: '250x200', format: 'jpeg', fallback: "img/no_image.jpg" %>
     </div>
     <div class="offset-1">
       <div class="mt-2">
@@ -13,14 +13,14 @@
       <div class="d-flex mt-4">
         <h5><strong>¥ <%= @item.add_tax_price.to_s(:delimited) %></strong></h5> <span>(税込)</span>
       </div>
-      
+
       <div><%= render 'layouts/errors', obj: @cart_item %></div>
         <% if customer_signed_in? %>
           <%= form_with model: @cart_item, url: customer_cart_items_path(current_customer, @item), local: true do |f| %>
             <%= f.hidden_field :item_id, value: @item.id %>
           <div class="row mt-4">
-            <div class="mr-5"><%= f.select :amount, options_for_select((1..50).to_a), {selected: 1}, class:"form-control btn-sm" %></div>
-            <div><%= f.submit "カートに入れる", class:"btn btn-success" %></div>
+            <div class="mr-5 ml-3"><%= f.select :amount, options_for_select((1..50).to_a), {selected: 1}, class:"form-control btn-sm" %></div>
+            <div><%= f.submit "カートに入れる", class:"btn btn-red" %></div>
           </div>
           <% end %>
         <% end %>
