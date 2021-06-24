@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_items_path
     when Customer
-      root_path
+      customer_path(resource)
     end
   end
 
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
-  
+
   protected
 
   def configure_permitted_parameters
