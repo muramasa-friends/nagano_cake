@@ -1,7 +1,7 @@
 <div class="container offset-4 mx-auto">
 
 <h2 class='page_title my-4'><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
-    
+
     <table class="table table-borderless col-6">
         <tbody offset-8>
             <tr>
@@ -46,11 +46,11 @@
     </table>
     <div class="row offset-3">
         <div class="mr-5">
-            <%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-sm btn-success edit_admin_customer_#{@customer.id}" %>
+            <%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-sm btn-red edit_admin_customer_#{@customer.id}" %>
         </div>
         <div>
-            <%= link_to '注文履歴一覧を見る', admin_orders_path, class: "btn btn-sm btn-primary" %>
+            <%= link_to '注文履歴一覧を見る', admin_orders_path, class: "btn btn-sm btn-outline-dark" %>
         </div>
     </div>
-    
+
 </div>
