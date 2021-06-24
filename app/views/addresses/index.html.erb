@@ -17,7 +17,7 @@
     <div class='form-group'>
       <%= f.label :name, '宛名', class: 'col-md-3 col-sm-4 small' %>
       <%= f.text_field :name, autocomplete: 'name', placeholder: '令和道⼦', class: 'form-control col-md-3 col-sm-8' %>
-      <%= f.submit '新規登録', class:'btn btn-sm btn-success px-4 offset-6' %>
+      <%= f.submit '新規登録', class:'btn btn-sm btn-red px-4 offset-6' %>
     </div>
   <% end %>
 
@@ -38,8 +38,8 @@
         <td><%= address.address %></td>
         <td><%= address.name %></td>
         <td>
-          <%= link_to '編集する',  edit_address_path(address), class:"btn btn-sm btn-success" %>
-          <%= link_to '削除する',  address_path(address), method: :delete, class:"btn btn-sm btn-danger ml-1" %>
+          <%= link_to '編集する',  edit_address_path(address), class:"btn btn-sm btn-outline-dark" %>
+          <%= link_to '削除する',  address_path(address), method: :delete, class:"btn btn-sm btn-outline-dark ml-1" %>
         </td>
       </tr>
       <% end %>
