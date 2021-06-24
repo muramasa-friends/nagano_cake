@@ -22,6 +22,11 @@
    padding: 0;
    box-sizing: border-box;
  }
+ 
+ header, nav, body, footer, p, a {
+  font-family: 'HanziPen TC', 'Sawarabi Mincho', 'Teko', 'arial narrow', "Segoe Print",  sans-serif;
+ }
+
 
  .about-title {
   font-size: 60px;
@@ -77,6 +82,10 @@
 .item_form {
   border-collapse: separate;
   border-spacing: 0px 8px;
+}
+
+.item-name {
+ font-size: 20px;
 }
 
 .page_title{
