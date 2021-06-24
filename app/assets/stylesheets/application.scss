@@ -81,7 +81,23 @@
 
 .item_form {
   border-collapse: separate;
-  border-spacing: 0px 8px;
+  order-spacing: 0px 8px;
+}
+
+.backcolor {
+  background-color:#df5a5c;
+}
+
+.backcolor:hover {
+ background-color:#df5a5c;
+}
+
+.backcolor-active {
+ background-color:#d01120;
+}
+
+.item-name {
+ font-size: 20px;
 }
 
 .page_title{
@@ -95,4 +111,3 @@
  font-size: 16px;
  color: #df5a5c;
 }
-
