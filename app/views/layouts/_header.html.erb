@@ -1,7 +1,11 @@
 <header class="bg-light sticky-top">
   <nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="/"><span>Nagano Cake</span></a>
+      <div>
+        <%= link_to "/" do %>
+          <%= image_tag "logo.jpg", :class => "logo", :alt => "Nagano Cake", width: 250 %>
+        <% end %>
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
