@@ -106,6 +106,18 @@
  color: #df5a5c;
 }
 
+.backcolor {
+  background-color:#df5a5c;
+}
+
+.backcolor:hover {
+ background-color:#df5a5c;
+}
+
+.backcolor-active {
+ background-color:#d01120;
+}
+
 .btn-red {
   color: #fff;
   background-color: #df5a5c;
@@ -157,7 +169,6 @@
  top: 16px;
  height: 20px;
  width: 20px;
-
 }
 
 .radio_btn::after {
