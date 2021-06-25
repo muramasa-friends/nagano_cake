@@ -123,8 +123,20 @@
  background-color:#df5a5c;
 }
 
+.backcolor-hover:hover {
+ background-color:#df5a5c;
+}
+
 .backcolor-active {
  background-color:#d01120;
+}
+
+.pagination>li {
+ height:35px;
+ width:35px;
+ border-radius:40%;
+ line-height:35px;
+ text-align:center;
 }
 
 .btn-red {
