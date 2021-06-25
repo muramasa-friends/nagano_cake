@@ -90,6 +90,33 @@ Item.create!(
 )
 
 Item.create!(
+      name: 'ティラミス',
+      introduction: '甘さ控えめのティラミスです',
+      price: 460,
+      image: File.open('./app/assets/images/img/tiramisu.jpg'),
+      is_active: false,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'ラズベリーのロールケーキ',
+      introduction: 'ラズベリーを使用したロールケーキです。',
+      price: 350,
+      image: File.open('./app/assets/images/img/rollcake.jpg'),
+      is_active: false,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'パンケーキ',
+      introduction: 'ラズベリーのパンケーキです。',
+      price: 350,
+      image: File.open('./app/assets/images/img/pancake.jpg'),
+      is_active: false,
+      genre_id: 1
+)
+
+Item.create!(
       name: 'くるみのパウンドケーキ',
       introduction: 'くるみを使用したパウンドケーキです。',
       price: 350,
