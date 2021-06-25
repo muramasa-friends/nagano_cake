@@ -2,10 +2,14 @@ ja:
   activerecord:
     models:
       customer: 会員
+      admin: 管理者
       address: 配送先
+      item: 商品
+      genre: ジャンル
     attributes:
       customer:
         email: メールアドレス
+        password: パスワード
         last_name: お名前(姓)
         first_name:  お名前(名)
         last_name_kana: 姓(カナ)
@@ -13,7 +17,16 @@ ja:
         postal_code: 郵便番号
         address: 住所
         telephone_number: 電話番号
+      admin:
+        email: メールアドレス
       address:
         postal_code: 郵便番号
         address: 住所
         name: 宛名
+      item:
+        name: 商品名
+        introduction: 商品説明文
+        price: 価格
+        genre: ジャンル
+      genre:
+        name: ジャンル名

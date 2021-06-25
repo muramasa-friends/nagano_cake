@@ -15,6 +15,9 @@ class OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items.all
+    if @order.invalid?
+      redirect_to new_order_path, alert: "配送先情報を入力してください" 
+    else
       if params[:order][:address_option] == "0"
         @order.postal_code = current_customer.postal_code
         @order.address = current_customer.address
@@ -29,13 +32,12 @@ class OrdersController < ApplicationController
           render :new
         end
 
-
       elsif params[:order][:address_option] == "2"
-       render :new if params[:order][:postal_code] == nil
        @order.postal_code = params[:order][:postal_code]
        @order.address = params[:order][:address]
        @order.name = params[:order][:name]
       end
+    end
   end
 
   def create
