@@ -31,24 +31,29 @@
   font-size: 60px;
  }
 
- .top-color {
-  background-color: #FFF0F5;
- }
+ // .top-color {
+ //  background-color: #FFF0F5;
+ // }
 
   .top-visual {
-  background-image: url(img/Strawberry7.jpg);
+  background-image: url(img/top.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   height: 500px;
+  position: relative;
  }
 
 .top-visual-content{
-  width: 40%;
-  height: 500px;
+  width: 35%;
+  height: 200px;
   text-align: center;
-  padding-top: 180px;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.7);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin: 0;
+  padding: 45px 10px;
 }
 
  .cake-image {
@@ -70,6 +75,10 @@
  a:hover{
   text-decoration: none;
   color: gray;
+ }
+
+ .underline a{
+  text-decoration: underline;
  }
 
  #error_explanation {
