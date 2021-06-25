@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
         @order.postal_code = current_customer.postal_code
         @order.address = current_customer.address
         @order.name = current_customer.full_name
-        
+
       elsif params[:order][:address_option] == "1"
         if @address = Address.find(params[:order][:address_id])
            @order.postal_code = @address.postal_code
@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
 
 
       elsif params[:order][:address_option] == "2"
+       render :new if params[:order][:postal_code] == nil
        @order.postal_code = params[:order][:postal_code]
        @order.address = params[:order][:address]
        @order.name = params[:order][:name]
