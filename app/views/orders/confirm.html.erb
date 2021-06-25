@@ -21,14 +21,14 @@
                     <%= attachment_image_tag cart_item.item, :image, size: '60x50', format: 'jpeg' %>
                     <%= cart_item.item.name %>
                   </td>
-                  <td>
-                    <%= (cart_item.item.price * 1.1).to_i %>
+                  <td class="align-middle">
+                    <%= (cart_item.add_tax_price).to_s(:delimited) %>
                   </td>
-                  <td>
+                  <td class="align-middle">
                     <%= cart_item.amount %>
                   </td>
-                  <td>
-                    <%= ((cart_item.item.price * 1.1) * cart_item.amount).to_i %>
+                  <td class="align-middle">
+                    <%= (cart_item.sub_total).to_s(:delimited) %>
                     <% @sub_total += ((cart_item.item.price * 1.1) * cart_item.amount).to_i %>
                   </td>
                 </tr>
@@ -50,14 +50,14 @@
               <tr>
                 <td>商品合計</td>
                 <td>
-                  <%= @sub_total.to_i %>
+                  <%= @sub_total.to_s(:delimited) %>
                 </td>
               </tr>
               <tr>
                 <td><%= f.label :payment_amount, "請求金額" %></td>
                 <td>
-                  <%= @total = (@sub_total + 800).to_i %>
-                  <%= f.hidden_field :payment_amount, value: @total %>
+                  <%= (@sub_total + 800).to_s(:delimited) %>
+                  <%= f.hidden_field :payment_amount, value: @sub_total + 800 %>
                 </td>
               </tr>
             </tbody>
@@ -86,13 +86,13 @@
         <strong>お届け先</strong>
       </div>
       <div class="col-5">
-        <%= @order.postal_code %><%= @order.address %><br>
+        〒<%= @order.postal_code %><%= @order.address %><br>
         <%= @order.name %>
         <%= f.hidden_field :postal_code %>
         <%= f.hidden_field :address %>
         <%= f.hidden_field :name %>
       </div>
     </div>
-    <%= f.submit "注文を確定する", class: "btn btn-success px-4 mt-4 offset-md-5" %>
+    <%= f.submit "注文を確定する", class: "btn btn-red px-4 mt-4 offset-md-5" %>
 <% end %>
 </div>

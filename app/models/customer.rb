@@ -16,8 +16,13 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :telephone_number, presence: true
   validates :postal_code, presence: true, length: {is:7}
+
   def full_name
     self.last_name + self.first_name
+  end
+  
+  def my_address
+    "〒" + self.postal_code + " " + self.address
   end
 
   def active_for_authentication?

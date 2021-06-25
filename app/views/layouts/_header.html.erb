@@ -1,7 +1,11 @@
 <header class="bg-light sticky-top">
   <nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="/"><span>Nagano Cake</span></a>
+      <div>
+        <%= link_to "/" do %>
+          <%= image_tag "logo.jpg", :class => "logo", :alt => "Nagano Cake", width: 250 %>
+        <% end %>
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,17 +32,16 @@
         </ul>
     </div>
    </nav>
-   
-    <% if admin_signed_in? %>
-      <div class="container pb-2">
-        <div class="text-right">
-          <%= form_with url: '#', method: :get, local: true do |f| %>
-            <%= f.text_field :content %>
-            <%= button_tag do %>
-              <i class="fas fa-search"></i>
-            <% end %>
-          <% end %>
+
+   <% if admin_signed_in? %>
+     <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
+       <div class="container pb-2">
+         <div class="text-right">
+          <%= f.select 'search[model]', options_for_select({ "会員名" => "customer", "商品名" => "item", "ジャンル" => "genre" }) %>
+          <%= f.text_field 'search[value]' %>
+          <%= f.submit "検索", class: "btn btn-red btn-sm" %>
+         </div>
         </div>
-     </div>
-    <% end %>
+      <% end %>
+   <% end %>
 </header>

@@ -11,7 +11,7 @@
             </tr>
             <tr>
               <td class="col-3 table-active">配送先</td>
-              <td><%= @order.postal_code %><br>
+              <td>〒<%= @order.postal_code %><br>
                   <%= @order.address %><br>
                   <%= @order.name %>
               </td>
@@ -64,7 +64,7 @@
             <% @order_items.each do |order_item| %>
             <tr>
               <td><%= order_item.item.name %></td>
-              <td><%= order_item.price %></td>
+              <td><%= order_item.price.to_s(:delimited) %></td>
               <td><%= order_item.amount %></td>
               <td><%= order_item.sub_total.to_s(:delimited) %></td>
             </tr>
