@@ -62,10 +62,6 @@
   background-blend-mode:lighten;
  }
 
- .content-white{
-  background-color: rgba(255,255,255,0.8);;
- }
-
  a {
   text-decoration: none;
   color: #000;
@@ -101,6 +97,14 @@
 
 .item-name {
  font-size: 20px;
+}
+
+.card-box .card {
+    transition:transform 0.5s;
+}
+
+.card-box .card:hover {
+    transform:scale(1.1);
 }
 
 .page_title{
