@@ -1,7 +1,7 @@
 <!--配送先編集フォーム-->
 <div class="container">
+  <h2 class='page_title my-4'>配送先編集</h2>
   <%= render 'layouts/errors', obj: @address %>
-  <p>配送先編集</p>
   <%= form_with model:@address, class: 'form-horizontal col-md-9 col-sm-12', local: true do |f| %>
     <div class='form-group'>
       <%= f.label :postal_code, '郵便番号(ハイフンなし)', class: 'col-md-3 col-sm-4 small' %>
@@ -16,7 +16,7 @@
     <div class='form-group'>
       <%= f.label :name, '宛名', class: 'col-md-3 col-sm-4 small' %>
       <%= f.text_field :name, autocomplete: 'name', placeholder: '令和道⼦', class: 'form-control col-md-3 col-sm-8' %>
-      <%= f.submit '変更内容を保存', class:'btn btn-sm btn-success px-4 offset-md-3' %>
+      <%= f.submit '変更内容を保存', class:'btn btn-sm btn-red px-4 offset-md-3 mt-4' %>
     </div>
   <% end %>
 </div>

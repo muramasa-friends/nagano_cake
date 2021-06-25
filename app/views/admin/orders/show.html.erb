@@ -1,8 +1,8 @@
 <!--注文履歴詳細-->
 <div class="container">
+  <h2 class='page_title my-4'>注文履歴詳細</h2>
   <div class="row">
     <div class="col-md-9">
-      <p>注文履歴詳細</p>
       <dl class="row">
         <dt class="col-2 py-1">購入者</dt>
         <dd class="col-10 py-1"><%= link_to @customer.full_name, admin_customer_path(@customer) %></dd>
@@ -16,7 +16,7 @@
         <dd class="col-10">
           <%= form_with model:@order, url: admin_order_path(@order), local: true do |f| %>
             <%= f.select :status, options_for_select(Order.statuses.keys, :selected => @order.status) %>
-            <%= f.submit '更新', class: "btn btn-sm btn-success ml-3" %>
+            <%= f.submit '更新', class: "btn btn-sm btn-red ml-3" %>
           <% end %>
         </dd>
       </dl>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="row mt-5">
-    <table class="table col-md-8">
+    <table class="table col-md-8 bg-white">
       <thead class="thead-light">
         <tr>
           <th>商品名</th>
@@ -44,7 +44,7 @@
             <td><%= order_item.sub_total %></td>
             <%= form_with model:order_item, url: admin_order_order_item_path(order_item.order_id, order_item), local: true do |f| %>
               <td><%= f.select :production_status, options_for_select(OrderItem.production_statuses.keys, :selected => order_item.production_status) %></td>
-              <td><%= f.submit '更新', class: 'btn btn-sm btn-success' %></td>
+              <td><%= f.submit '更新', class: 'btn btn-sm btn-red' %></td>
             <% end %>
           </tr>
           <% @total += order_item.sub_total %>

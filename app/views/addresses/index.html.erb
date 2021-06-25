@@ -1,7 +1,7 @@
 <!--配送先登録/一覧ページ-->
 <div class="container">
+  <h2 class='page_title my-4'>配送先登録/一覧</h2>
   <%= render 'layouts/errors', obj: @address %>
-  <p>配送先登録/一覧</p>
   <!--配送先登録フォーム-->
   <%= form_with model:@address, class: 'form-horizontal col-md-9 col-sm-12', local: true do |f| %>
     <div class='form-group'>
@@ -17,12 +17,12 @@
     <div class='form-group'>
       <%= f.label :name, '宛名', class: 'col-md-3 col-sm-4 small' %>
       <%= f.text_field :name, autocomplete: 'name', placeholder: '令和道⼦', class: 'form-control col-md-3 col-sm-8' %>
-      <%= f.submit '新規登録', class:'btn btn-sm btn-success px-4 offset-md-3' %>
+      <%= f.submit '新規登録', class:'btn btn-sm btn-red px-4 offset-6' %>
     </div>
   <% end %>
 
   <!--配送先一覧-->
-   <table class="table col-md-8 mt-5 table-bordered">
+   <table class="table col-md-8 mt-5 table-bordered bg-white">
     <thead class="thead-light">
       <tr>
         <th>郵便番号</th>
@@ -38,8 +38,8 @@
         <td><%= address.address %></td>
         <td><%= address.name %></td>
         <td>
-          <%= link_to '編集する',  edit_address_path(address), class:"btn btn-sm btn-success" %>
-          <%= link_to '削除する',  address_path(address), method: :delete, class:"btn btn-sm btn-danger ml-1" %>
+          <%= link_to '編集する',  edit_address_path(address), class:"btn btn-sm btn-outline-dark" %>
+          <%= link_to '削除する',  address_path(address), method: :delete, class:"btn btn-sm btn-outline-dark ml-1" %>
         </td>
       </tr>
       <% end %>

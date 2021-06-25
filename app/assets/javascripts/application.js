@@ -17,3 +17,57 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+/*global $*/
+
+$(function () {
+  $(document).on('turbolinks:load', () => {
+    $('#customer_postal_code').jpostal({
+      postcode: [
+        '#customer_postal_code'
+      ],
+      address: {
+        "#customer_address": "%3%4%5%6%7",
+      }
+    });
+  });
+});
+
+$(function () {
+  $(document).on('turbolinks:load', () => {
+    $('#order_postal_code').jpostal({
+      postcode: [
+        '#order_postal_code'
+      ],
+      address: {
+        "#order_address": "%3%4%5%6%7",
+      }
+    });
+  });
+});
+
+$(function () {
+  $(document).on('turbolinks:load', () => {
+    $('#address_postal_code').jpostal({
+      postcode: [
+        '#address_postal_code'
+      ],
+      address: {
+        "#address_address": "%3%4%5%6%7",
+      }
+    });
+  });
+});
+
+$(function () {
+  $(document).on('turbolinks:load', () => {
+    $('#admin_postal_code').jpostal({
+      postcode: [
+        '#admin_postal_code'
+      ],
+      address: {
+        "#admin_address": "%3%4%5%6%7",
+      }
+    });
+  });
+});

@@ -1,9 +1,9 @@
 <% if page.current? %>
-  <li class="page-item active">
-    <%= content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'page-link bg-secondary text-light rounded-circle' %>
+  <li class="page-item">
+    <%= content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'page-link backcolor-active text-light rounded-circle' %>
   </li>
 <% else %>
   <li class="page-item">
-    <%= link_to page, url, remote: remote, rel: page.rel, class: 'page-link bg-secondary text-light rounded-circle' %>
+    <%= link_to page, url, remote: remote, rel: page.rel, class: 'page-link backcolor text-light rounded-circle' %>
   </li>
 <% end %>
