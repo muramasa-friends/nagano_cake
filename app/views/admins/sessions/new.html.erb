@@ -1,6 +1,6 @@
 <!--管理者用のログインページ-->
-<h5 class='offset-md-2'>管理者ログイン</h5>
 <div class='container'>
+  <h2 class='offset-md-1 page_title my-4'>管理者ログイン</h2>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <%= form_with model:@admin, url: admin_session_path, local: true do |f| %>
@@ -15,7 +15,7 @@
         </div>
 
         <div class="actions mt-2">
-          <%= f.submit "ログイン", class: 'btn btn-sm btn-primary px-4 offset-md-4' %>
+          <%= f.submit "ログイン", class: 'btn btn-sm btn-red px-4 offset-md-4' %>
         </div>
       <% end %>
     </div>
