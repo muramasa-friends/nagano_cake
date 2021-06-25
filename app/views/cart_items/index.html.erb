@@ -18,20 +18,17 @@
       <% @sub_total = 0 %>
       <% @cart_items.each do |cart_item| %>
       <% @sub_total = cart_item.add_tax_price * cart_item.amount %>
-      <tr>
+      <tr id="cart">
         <td class="col-4 align-middle">
           <div><%= attachment_image_tag cart_item.item, :image, :fill, 50, 40 %>　<%= cart_item.item.name %></div>
           <div></div>
         </td>
         <td class="col-2 align-middle"><%= (cart_item.add_tax_price).to_s(:delimited) %></td>
-        <td class="col-2 align-middle text-center">
-          <%= form_with model: cart_item, url:customer_cart_item_path(current_customer, cart_item), local:true do |f| %>
-          <div class="row ml-2">
-            <div><%= f.select :amount, options_for_select((1..50).to_a, {selected: cart_item.amount}), class:"form-control" %><%= f.submit "変更", class:"btn btn-outline-dark btn-sm ml-md-3" %></div>
-
-          </div>
-          <% end %>
+        
+        <td class="col-2 align-middle text-center cart-update-botton">
+          <%= render 'cart_items/cart_update', customer_id: current_customer, cart_item: cart_item %>
         </td>
+        
         <td class="col-2 align-middle">
           <%= @sub_total.to_s(:delimited) %>
           <% @sum += @sub_total %>

@@ -1,0 +1,5 @@
+<%= form_with model: cart_item, url:customer_cart_item_path(current_customer, cart_item), remote:true do |f| %>
+  <div class="row ml-2">
+    <div><%= f.select :amount, options_for_select((1..50).to_a, {selected: cart_item.amount}), class:"form-control" %><%= f.submit "変更", class:"btn btn-outline-dark btn-sm ml-md-3" %></div>
+  </div>
+<% end %>
