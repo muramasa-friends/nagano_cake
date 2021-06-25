@@ -108,15 +108,6 @@ Item.create!(
 )
 
 Item.create!(
-      name: 'パンケーキ',
-      introduction: 'ラズベリーのパンケーキです。',
-      price: 350,
-      image: File.open('./app/assets/images/img/pancake.jpg'),
-      is_active: false,
-      genre_id: 1
-)
-
-Item.create!(
       name: 'くるみのパウンドケーキ',
       introduction: 'くるみを使用したパウンドケーキです。',
       price: 350,
@@ -135,6 +126,15 @@ Item.create!(
 )
 
 Item.create!(
+      name: 'りんごあめ（６本セット）',
+      introduction: '様々なコーティングをしたりんごあめのセットです。',
+      price: 1000,
+      image: File.open('./app/assets/images/img/apple_candy.jpg'),
+      is_active: false,
+      genre_id: 4
+)
+
+Item.create!(
       name: 'マカロン',
       introduction: '５色のマカロンです。',
       price: 300,
@@ -144,12 +144,12 @@ Item.create!(
 )
 
 Item.create!(
-      name: 'りんごあめ（６本セット）',
-      introduction: '様々なコーティングをしたりんごあめのセットです。',
-      price: 1000,
-      image: File.open('./app/assets/images/img/apple_candy.jpg'),
+      name: 'パンケーキ',
+      introduction: 'ラズベリーのパンケーキです。',
+      price: 350,
+      image: File.open('./app/assets/images/img/pancake.jpg'),
       is_active: false,
-      genre_id: 4
+      genre_id: 1
 )
 
 Item.create!(
@@ -174,7 +174,7 @@ Item.create!(
       name: 'いちごのティラミス',
       introduction: '長野県産の章姫（あきひめ）を使用したホワイトティラミスです。',
       price: 460,
-      image: File.open('./app/assets/images/img/muffin.jpg'),
+      image: File.open('./app/assets/images/img/strawberry_tiramisu.jpg'),
       is_active: false,
       genre_id: 1
 )
