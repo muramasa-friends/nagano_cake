@@ -18,7 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
-
+/*global $*/
 
 $(function () {
   $(document).on('turbolinks:load', () => {
