@@ -36,14 +36,7 @@ Rails.application.routes.draw do
     get '/search' => 'search#search'
   end
 end
-
-
-
-
-
-
-
-  # ====================controller作成時に自動生成されたルーティング================================
+  
   # namespace :admin do
   #   get 'genres/index'
   #   get 'genres/edit'

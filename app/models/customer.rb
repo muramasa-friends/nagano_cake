@@ -1,8 +1,8 @@
 class Customer < ApplicationRecord
-  
+
   include JpPrefecture
   jp_prefecture :prefecture_code
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,7 +24,7 @@ class Customer < ApplicationRecord
   def full_name
     self.last_name + self.first_name
   end
-  
+
   def my_address
     "〒" + self.postal_code + " " + self.address
   end
@@ -32,12 +32,16 @@ class Customer < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
-  
-  
+
+  def inactive_message
+    "退会済みのアカウントです。"
+  end
+
+
   def prefecture_name
     JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
   end
-  
+
   def prefecture_name=(prefecture_name)
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
