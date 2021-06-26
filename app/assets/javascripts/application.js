@@ -72,7 +72,6 @@ $(function () {
   });
 });
 
-
 $(function() {
 	setTimeout(function(){
 		$('.start p').fadeIn(1600);
@@ -92,15 +91,15 @@ $(document).on('turbolinks:load', function () {
 });
 
 $(function() {
-    $('new-arrival').slick({
-    	dots: true,
-    	autoplay: true,
-	  	slidesToShow: 4,
-	  	speed: 7500,
-	  	autoplaySpeed: 5,
-	  	centerMode: true,
-      swipeToSlide: true,
-      autoplay: true,
-      waitForAnimate: false
+    $('.new-arrival').slick({
+    dots: true,
+    autoplay: true,
+		slidesToShow: 3,
+		speed: 7500,
+		autoplaySpeed: 5,
+		centerMode: true,
+    swipeToSlide: true,
+    autoplay: true,
+    waitForAnimate: false
     });
 });

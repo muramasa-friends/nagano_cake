@@ -10,11 +10,15 @@
     <div class="cotainer">
       <h2 class="page_title offset-md-1 my-5">新着商品</h2>
       <div class="row">
-        <div class="mx-auto" id="new-arrival">
+        <div class="mx-auto new-arrival">
           <% @items.each do |item| %>
             <div class="mx-3 card-box">
               <%= link_to item_path(item) do %>
                 <%= attachment_image_tag item, :image, size: '250x200', format: 'jpeg', fallback: "img/no_image.jpg", class: "card shadow" %><br>
+                <div class="item-name">
+                  <%= item.name %><br>
+                </div>
+                ¥<%= (item.price).to_s(:delimited) %>
               <% end %>
             </div>
           <% end %>
