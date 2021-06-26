@@ -51,12 +51,67 @@ Genre.create!(
   name: "プリン"
   )
 
+Genre.create!(
+  name: "焼き菓子"
+  )
+
+Genre.create!(
+  name: "キャンディ"
+  )
+
+
+
 p "create Items"
 Item.create!(
-      name: 'ケーキ',
-      introduction: '新鮮なイチゴを使用しています。',
-      price: 100,
-      image: File.open('./app/assets/images/img/cake.jpg'),
+      name: 'いちごのショートケーキ',
+      introduction: '長野県産の章姫（あきひめ）をふんだんに使用したショートケーキです。いちごとクリームの甘さがマッチした安定感のある美味しさをお楽しみください。',
+      price: 390,
+      image: File.open('./app/assets/images/img/shortcake.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'アップルパイ',
+      introduction: '長野県産のりんごを使用したアップルパイです。サクサクのパイとたっぷりはいった濃厚なカスタードクリームがさっぱりとしたりんごとマッチした当店イチオシの商品です。',
+      price: 450,
+      image: File.open('./app/assets/images/img/applepie.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'レモンケーキ',
+      introduction: 'レモンのさっぱりとした風味を味わえるケーキです。',
+      price: 390,
+      image: File.open('./app/assets/images/img/lemoncake.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'ティラミス',
+      introduction: '甘さ控えめのティラミスです',
+      price: 460,
+      image: File.open('./app/assets/images/img/tiramisu.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'ラズベリーのロールケーキ',
+      introduction: 'ラズベリーを使用したロールケーキです。',
+      price: 350,
+      image: File.open('./app/assets/images/img/rollcake.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'くるみのパウンドケーキ',
+      introduction: 'くるみを使用したパウンドケーキです。',
+      price: 350,
+      image: File.open('./app/assets/images/img/poundcake.jpg'),
       is_active: true,
       genre_id: 1
 )
@@ -65,18 +120,73 @@ Item.create!(
       name: 'プリン',
       introduction: 'なめらかな食感と濃厚な味わいのカスタードプリンです。',
       price: 300,
-      image: File.open('./app/assets/images/img/pudding.jpg'),
-      is_active: false,
+      image: File.open('./app/assets/images/img/pudding2.jpg'),
+      is_active: true,
       genre_id: 2
 )
 
-10.times do |n|
-  Item.create!(
-    name: "ケーキ#{n + 1}",
-    introduction: '新鮮なイチゴを使用しています。',
-    price: 100,
-    image: File.open('./app/assets/images/img/no_image.jpg'),
-    is_active: true,
-    genre_id: 1
-    )
-end
+Item.create!(
+      name: 'りんごあめ（６本セット）',
+      introduction: '様々なコーティングをしたりんごあめのセットです。',
+      price: 1000,
+      image: File.open('./app/assets/images/img/apple_candy.jpg'),
+      is_active: true,
+      genre_id: 4
+)
+
+Item.create!(
+      name: 'マカロン',
+      introduction: '５色のマカロンです。',
+      price: 300,
+      image: File.open('./app/assets/images/img/macaroons.jpg'),
+      is_active: true,
+      genre_id: 3
+)
+
+Item.create!(
+      name: 'パンケーキ',
+      introduction: 'ラズベリーのパンケーキです。',
+      price: 350,
+      image: File.open('./app/assets/images/img/pancake.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'ラズベリーチーズケーキ',
+      introduction: 'ラズベリーを使用したチーズケーキです。',
+      price: 430,
+      image: File.open('./app/assets/images/img/cheesecake.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+Item.create!(
+      name: '煮りんご入り紅茶マフィン',
+      introduction: '長野県産のりんごを使用した紅茶のマフィンです。',
+      price: 350,
+      image: File.open('./app/assets/images/img/muffin.jpg'),
+      is_active: true,
+      genre_id: 3
+)
+
+Item.create!(
+      name: 'いちごのティラミス',
+      introduction: '長野県産の章姫（あきひめ）を使用したホワイトティラミスです。',
+      price: 460,
+      image: File.open('./app/assets/images/img/strawberry_tiramisu.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+Item.create!(
+      name: 'いちごのシフォンケーキ',
+      introduction: '長野県産の章姫（あきひめ）を使用したシフォンケーキです。たっぷりのいちごと生クリームがふわふわの生地と合わさった至福のケーキです。',
+      price: 2800,
+      image: File.open('./app/assets/images/img/cake.jpg'),
+      is_active: true,
+      genre_id: 1
+)
+
+
+

@@ -1,8 +1,8 @@
-
 <div class="container">
-  <h2 class='page_title my-4'>会員一覧</h2>
-  <table class="table">
-    <thead>
+  <div class="row col-12 col-md-10 col-lg-10 px-sm-0 mx-auto mb-5">
+  <h2 class="page_title my-4">会員一覧</h2>
+  <table class="table bg-white">
+    <thead class="thead-light">
       <tr>
         <th>会員ID</th>
         <th>氏名</th>
@@ -14,7 +14,7 @@
       <% @customers.each do |customer| %>
         <tr>
           <td><%= customer.id%></td>
-          <td><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
+          <td class="underline"><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
           <td><%= customer.email %></td>
 
           <td>
@@ -24,15 +24,14 @@
               <div class="text-success"><strong><%= "有効" %></strong></div>
             <% end %>
           </td>
-
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <div>
-    <%= paginate @customers %>
+    <div>
+      <%= paginate @customers %>
+    </div>
   </div>
-
 </div>
 
