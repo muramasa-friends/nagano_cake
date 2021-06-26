@@ -76,7 +76,7 @@ Item.create!(
       introduction: '長野県産のりんごを使用したアップルパイです。サクサクのパイとたっぷりはいった濃厚なカスタードクリームがさっぱりとしたりんごとマッチした当店イチオシの商品です。',
       price: 450,
       image: File.open('./app/assets/images/img/applepie.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
@@ -85,7 +85,7 @@ Item.create!(
       introduction: 'レモンのさっぱりとした風味を味わえるケーキです。',
       price: 390,
       image: File.open('./app/assets/images/img/lemoncake.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
@@ -94,7 +94,7 @@ Item.create!(
       introduction: '甘さ控えめのティラミスです',
       price: 460,
       image: File.open('./app/assets/images/img/tiramisu.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
@@ -103,7 +103,7 @@ Item.create!(
       introduction: 'ラズベリーを使用したロールケーキです。',
       price: 350,
       image: File.open('./app/assets/images/img/rollcake.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
@@ -112,7 +112,7 @@ Item.create!(
       introduction: 'くるみを使用したパウンドケーキです。',
       price: 350,
       image: File.open('./app/assets/images/img/poundcake.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
@@ -121,7 +121,7 @@ Item.create!(
       introduction: 'なめらかな食感と濃厚な味わいのカスタードプリンです。',
       price: 300,
       image: File.open('./app/assets/images/img/pudding2.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 2
 )
 
@@ -130,7 +130,7 @@ Item.create!(
       introduction: '様々なコーティングをしたりんごあめのセットです。',
       price: 1000,
       image: File.open('./app/assets/images/img/apple_candy.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 4
 )
 
@@ -139,7 +139,7 @@ Item.create!(
       introduction: '５色のマカロンです。',
       price: 300,
       image: File.open('./app/assets/images/img/macaroons.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 3
 )
 
@@ -148,7 +148,7 @@ Item.create!(
       introduction: 'ラズベリーのパンケーキです。',
       price: 350,
       image: File.open('./app/assets/images/img/pancake.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
@@ -157,7 +157,7 @@ Item.create!(
       introduction: 'ラズベリーを使用したチーズケーキです。',
       price: 430,
       image: File.open('./app/assets/images/img/cheesecake.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
@@ -166,7 +166,7 @@ Item.create!(
       introduction: '長野県産のりんごを使用した紅茶のマフィンです。',
       price: 350,
       image: File.open('./app/assets/images/img/muffin.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 3
 )
 
@@ -175,7 +175,7 @@ Item.create!(
       introduction: '長野県産の章姫（あきひめ）を使用したホワイトティラミスです。',
       price: 460,
       image: File.open('./app/assets/images/img/strawberry_tiramisu.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
@@ -184,7 +184,7 @@ Item.create!(
       introduction: '長野県産の章姫（あきひめ）を使用したシフォンケーキです。たっぷりのいちごと生クリームがふわふわの生地と合わさった至福のケーキです。',
       price: 2800,
       image: File.open('./app/assets/images/img/cake.jpg'),
-      is_active: false,
+      is_active: true,
       genre_id: 1
 )
 
