@@ -72,7 +72,7 @@ $(function () {
   });
 });
 
-// 初回アクセス時のみロゴをフェードイン
+// 初回アクセス時のみロゴをフェードインさせる
 $(function() {
 	setTimeout(function(){
 		$('.start p').fadeIn(1600);
