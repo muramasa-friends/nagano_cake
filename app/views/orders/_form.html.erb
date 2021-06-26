@@ -1,0 +1,50 @@
+<%= form_with model: order, url: orders_confirm_path, method: :post, local: true do |f| %>
+  <h5><strong>支払方法</strong></h5>
+    <div class="form-group">
+      <div class="radio-inline offset-md-1">
+        <%= f.radio_button :payment_method, "クレジットカード", checked: true %>
+        <%= f.label 'payment_method_クレジットカード', "クレジットカード", class: "radio_btn" %>
+      </div>
+      <div class="radio-inline offset-md-1">
+        <%= f.radio_button :payment_method, "銀行振込" %>
+        <%= f.label 'payment_method_銀行振込', "銀行振込", class: "radio_btn" %>
+      </div>
+    </div>
+
+  <h5><strong>お届け先</strong></h5>
+    <div class="offset-md-1">
+      <div class="form-group">
+        <%= f.radio_button :address_option, 0, checked: true %>
+        <%= f.label :address_option_0, "ご自身の住所", class: 'col-md-7 col-sm-8', class: "radio_btn" %>
+        <div class="col-md-10 col-sm-11 ml-3">
+          <%= customer.my_address %><br>
+          <%= customer.full_name %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.radio_button :address_option, 1 %>
+        <%= f.label :address_option_1, "登録済住所から選択", class: 'col-md-7 col-sm-8 radio_btn' %>
+        <div class="col-md-10 col-sm-11 ml-3">
+          <%= f.collection_select :address_id, Address.where(customer_id: current_customer.id), :id, :full_address, { include_blank: '選択してください'} %>
+        </div>
+      </div>
+        <%= f.radio_button :address_option, 2 %>
+        <%= f.label :address_option_2, "新しいお届け先", class: 'col-md-5 col-sm-6 radio_btn' %>
+        <div class='form-group d-flex ml-3'>
+          <%= f.label :postal_code, '郵便番号(ハイフンなし)', class: 'col-md-6 col-sm-8' %>
+          <%= f.text_field :postal_code, placeholder: '0000000', size: "20x10" %>
+        </div>
+        <div class='form-group d-flex ml-3'>
+          <%= f.label :address, '住所', class: 'col-md-6 col-sm-8'  %>
+          <%= f.text_field :address, placeholder: '東京都渋⾕区代々⽊神園町0-0', size: 60 %>
+        </div>
+        <div class='form-group d-flex ml-3'>
+          <%= f.label :name, '宛名', class: 'col-md-6 col-sm-8' %>
+          <%= f.text_field :name, placeholder: '令和道⼦', size:20 %>
+        </div>
+        <div class="offset-8">
+          <%= f.submit '確認画面へ進む', class: 'btn btn-sm btn-red px-4' %>
+        </div>
+     </div>
+  <% end %>
