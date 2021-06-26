@@ -18,7 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
- /*global */
+ /*global $*/
 $(function() {
 	setTimeout(function(){
 		$('.start p').fadeIn(1600);
@@ -36,3 +36,17 @@ $(document).on('turbolinks:load', function () {
 		$('.start').fadeOut(500);
 	},2500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
 });
+
+// $(function() {
+//     $('.new-arrival').slick({
+//     	dots: true,
+//     	autoplay: true,
+// 		slidesToShow: 3,
+// 		speed: 7500,
+// 		autoplaySpeed: 5,
+// 		centerMode: true,
+//         swipeToSlide: true,
+//         autoplay: true,
+//         waitForAnimate: false
+//     });
+// });
