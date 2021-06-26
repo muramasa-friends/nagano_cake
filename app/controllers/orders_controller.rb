@@ -15,29 +15,32 @@ class OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items.all
-    if @order.invalid?
-      redirect_to new_order_path, alert: "配送先情報を入力してください" 
-    else
       if params[:order][:address_option] == "0"
         @order.postal_code = current_customer.postal_code
         @order.address = current_customer.address
         @order.name = current_customer.full_name
 
       elsif params[:order][:address_option] == "1"
-        if @address = Address.find(params[:order][:address_id])
+        if params[:order][:address_id] == ""
+          flash.now[:alert] = "配送先情報を入力してください"
+          render :new
+        else
+           @address = Address.find(params[:order][:address_id])
            @order.postal_code = @address.postal_code
            @order.address = @address.address
            @order.name = @address.name
-        else
-          render :new
         end
 
       elsif params[:order][:address_option] == "2"
-       @order.postal_code = params[:order][:postal_code]
-       @order.address = params[:order][:address]
-       @order.name = params[:order][:name]
+        if params[:order][:postal_code] == "" || params[:order][:address] == "" || params[:order][:name] == ""
+          flash.now[:alert] = "配送先情報を入力してください"
+          render :new
+        else
+          @order.postal_code = params[:order][:postal_code]
+          @order.address = params[:order][:address]
+          @order.name = params[:order][:name]
+        end
       end
-    end
   end
 
   def create
