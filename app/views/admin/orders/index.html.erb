@@ -1,7 +1,7 @@
-
 <div class="container">
-  <h2 class='page_title mt-4'>注文履歴一覧</h2>
-  <table class="table col-md-8 mt-4">
+  <div class="row col-12 col-md-10 col-lg-10 px-sm-0 mx-auto">
+  <h2 class='page_title mb-4'>注文履歴一覧</h2>
+  <table class="table bg-white">
     <thead class="thead-light">
       <tr>
         <th>購入日時</th>
@@ -14,7 +14,7 @@
       <% @orders.each do |order| %>
         <% customer = Customer.find(order.customer_id) %>
         <tr>
-          <td>
+          <td class="underline">
             <%= link_to order.created_at.strftime('%Y/%m/%d %T'), admin_order_path(order) %>
           </td>
           <td><%= customer.full_name %></td>
@@ -22,7 +22,10 @@
           <td><%= order.status %></td>
         </tr>
       <% end %>
-      <%= paginate @orders %>
     </tbody>
   </table>
+  </div>
+    <div>
+      <%= paginate @orders %>
+    </div>
 </div>

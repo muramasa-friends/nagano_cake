@@ -1,25 +1,21 @@
 <div class="top-color">
   <div class="top-visual">
-      <p class="top-visual-content">
-        ようこそ、ながのCAKEへ！<br>
-        このサイトは、ケーキ販売のECサイトになります。<br>
+      <div class="top-visual-content">
+        <p><strong>ようこそ、ながのCAKEへ！</strong></p>
+        <p>このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。
-      </p>
+        購入には会員登録が必要になります。</p>
+      </div>
   </div>
     <div class="cotainer">
       <h2 class="page_title offset-md-1 my-5">新着商品</h2>
       <div class="row">
-        <div class="mx-auto d-flex">
+        <div class="mx-auto" id="new-arrival">
           <% @items.each do |item| %>
-            <div class="mx-3">
+            <div class="mx-3 card-box">
               <%= link_to item_path(item) do %>
                 <%= attachment_image_tag item, :image, size: '250x200', format: 'jpeg', fallback: "img/no_image.jpg", class: "card shadow" %><br>
               <% end %>
-              <div class="item-name">
-                <%= item.name %><br>
-              </div>
-              ¥<%= (item.price).to_s(:delimited) %>
             </div>
           <% end %>
         </div>
