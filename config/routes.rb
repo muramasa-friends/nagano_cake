@@ -1,22 +1,27 @@
 Rails.application.routes.draw do
   devise_for :customers
-  devise_for :admins
+  devise_for :admins, controllers: {
+  sessions: 'admins/sessions'
+}
 
   root 'homes#top'
   get 'home/about' => "homes#about"
 
   resources :customers, only: [:show, :edit, :update] do
-    resources :cart_items, only: [:index, :create, :update, :destroy]
     delete 'cart_items' => "cart_items#destroy_all"
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+    member do
+      get 'quit'
+      patch 'withdraw'
+    end
   end
-  get 'customers/quit' => "customers#quit"
-  patch 'customers/:id/withdraw' => "customers#withdraw"
 
   resources :items, only: [:index, :show]
 
-  resources :orders, only: [:index, :show, :new, :create]
-  get 'orders/complete' => "orders#complete"
+  post 'orders/confirm' => "orders#confirm"
   get 'orders/confirm' => "orders#confirm"
+  get 'orders/complete' => "orders#complete"
+  resources :orders, only: [:index, :show, :new, :create]
 
   resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
@@ -25,10 +30,12 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    get '/customers/:customer_id/ordersr' => 'orders#orders'
     resources :orders, only: [:index, :show, :update] do
       resources :order_items, only: [:update]
     end
-   end
+    get '/search' => 'search#search'
+  end
 end
   
   # namespace :admin do

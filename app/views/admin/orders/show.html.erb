@@ -1,2 +1,66 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<!--注文履歴詳細-->
+<div class="container">
+  <h2 class='page_title my-4'>注文履歴詳細</h2>
+  <div class="row">
+    <div class="col-md-9">
+      <dl class="row">
+        <dt class="col-2 py-1">購入者</dt>
+        <dd class="col-10 py-1"><%= link_to @customer.full_name, admin_customer_path(@customer) %></dd>
+        <dt class="col-2 py-1">注文日</dt>
+        <dd class="col-10 py-1"><%= @order.created_at.strftime('%Y/%m/%d') %></dd>
+        <dt class="col-2 py-1">配送先</dt>
+        <dd class="col-10 py-1"><%= @order.send_to %></dd>
+        <dt class="col-2 py-1">支払方法</dt>
+        <dd class="col-10 py-1"><%= @order.payment_method %></dd>
+        <dt class="col-2 py-1">注文ステータス</dt>
+        <dd class="col-10">
+          <%= form_with model:@order, url: admin_order_path(@order), local: true do |f| %>
+            <%= f.select :status, options_for_select(Order.statuses.keys, :selected => @order.status) %>
+            <%= f.submit '更新', class: "btn btn-sm btn-red ml-3" %>
+          <% end %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <table class="table col-md-8 bg-white">
+      <thead class="thead-light">
+        <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_items.each do |order_item| %>
+          <tr>
+            <td><%= order_item.item.name %></td>
+            <td><%= order_item.price %></td>
+            <td><%= order_item.amount %></td>
+            <td><%= order_item.sub_total %></td>
+            <%= form_with model:order_item, url: admin_order_order_item_path(order_item.order_id, order_item), local: true do |f| %>
+              <td><%= f.select :production_status, options_for_select(OrderItem.production_statuses.keys, :selected => order_item.production_status) %></td>
+              <td><%= f.submit '更新', class: 'btn btn-sm btn-red' %></td>
+            <% end %>
+          </tr>
+          <% @total += order_item.sub_total %>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="col-md-3 offset-md-1 d-flex align-items-end">
+      <dl class="row">
+        <dt class="col-6 py-1">商品合計</dt>
+        <dd class="col-6 py-1"><%= @total %>円</dd>
+        <dt class="col-6 py-1">送料</dt>
+        <dd class="col-6 py-1"><%= @order.shipping_fee %>円</dd>
+        <dt class="col-6 py-1">請求金額合計</dt>
+        <dd class="col-6 py-1"><%= @order.payment_amount %>円</dd>
+      </dl>
+    </div>
+  </div>
+</div>

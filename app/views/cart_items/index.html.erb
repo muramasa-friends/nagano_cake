@@ -1,2 +1,64 @@
-<h1>CartItems#index</h1>
-<p>Find me in app/views/cart_items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h2 class='page_title my-4'>ショッピングカート</h2>
+    <div class="col-md-3 ml-auto my-4"><%= link_to "カートを空にする", customer_cart_items_path(current_customer.id), method: :delete, class:"btn btn-outline-dark float-sm-right" %></div>
+  </div>
+  <table class="table table-bordered bg-white">
+    <thead class="thead-light">
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sum = 0 %>
+      <% @sub_total = 0 %>
+      <% @cart_items.each do |cart_item| %>
+      <% @sub_total = cart_item.add_tax_price * cart_item.amount %>
+      <tr>
+        <td class="col-4 align-middle">
+          <div><%= attachment_image_tag cart_item.item, :image, :fill, 50, 40 %>　<%= cart_item.item.name %></div>
+          <div></div>
+        </td>
+        <td class="col-2 align-middle"><%= (cart_item.add_tax_price).to_s(:delimited) %></td>
+        <td class="col-2 align-middle text-center">
+          <%= form_with model: cart_item, url:customer_cart_item_path(current_customer, cart_item), local:true do |f| %>
+          <div class="row ml-2">
+            <div><%= f.select :amount, options_for_select((1..50).to_a, {selected: cart_item.amount}), class:"form-control" %><%= f.submit "変更", class:"btn btn-outline-dark btn-sm ml-md-3" %></div>
+
+          </div>
+          <% end %>
+        </td>
+        <td class="col-2 align-middle">
+          <%= @sub_total.to_s(:delimited) %>
+          <% @sum += @sub_total %>
+        </td>
+        <td class="text-center"><%= link_to "削除する", customer_cart_item_path(current_customer, cart_item), method: :delete, class:"btn btn-outline-dark btn-sm"%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-md-4 mt-3"><%= link_to "買い物を続ける", root_path, class:"btn btn-outline-dark" %></div>
+    <div class="col-md-4 offset-md-4">
+      <table class="table table-bordered mt-3 bg-white">
+        <tr>
+          <td class="table-active col-5">合計金額</td>
+          <td>
+            <%= @sum.to_s(:delimited) %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="offset-5 my-4">
+    <%= link_to "情報入力に進む", new_order_path, class:"btn btn-red" %>
+  </div>
+</div>
+
+

@@ -1,0 +1,47 @@
+<header class="bg-white sticky-top border-bottom">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+      <div>
+        <%= link_to "/" do %>
+          <%= image_tag "logo.jpg", :class => "logo", :alt => "Nagano Cake", width: 250 %>
+        <% end %>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
+          <li class="d-flex align-items-center"><span>ようこそ、<%= current_customer.last_name %>さん！</span></li>
+        　<li><%= link_to 'マイページ', customer_path(current_customer), class: 'fas fa-user nav-link' %></li>
+          <li><%= link_to '商品一覧', items_path, class: 'fas fa-cheese nav-link' %></li>
+          <li><%= link_to 'カート', customer_cart_items_path(current_customer), class: 'fas fa-shopping-cart nav-link' %></li>
+          <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %></li>
+        <% elsif admin_signed_in? %>
+          <li><%= link_to '商品一覧', admin_items_path, class: 'fas fa-cheese nav-link' %></li>
+          <li><%= link_to '会員一覧', admin_customers_path, class: 'fas fa-users nav-link' %></li>
+          <li><%= link_to '注文履歴一覧', admin_orders_path, class: 'fas fa-copy nav-link' %></li>
+          <li><%= link_to 'ジャンル一覧', admin_genres_path, class: 'fas fa-sort nav-link' %></li>
+          <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %></li>
+        <% else %>
+          <li><%= link_to 'About', home_about_path, class: 'fas fa-store nav-link' %></li>
+          <li><%= link_to '商品一覧',items_path, class: 'fas fa-cheese nav-link' %></li>
+          <li><%= link_to '新規登録', new_customer_registration_path, class: 'fas fa-user-plus nav-link' %></li>
+          <li><%= link_to 'ログイン', new_customer_session_path, class: 'fas fa-sign-in-alt nav-link' %></li>
+        <% end %>
+        </ul>
+    </div>
+   </nav>
+
+   <% if admin_signed_in? %>
+     <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
+       <div class="container pb-2">
+         <div class="text-right">
+          <%= f.select 'search[model]', options_for_select({ "会員名" => "customer", "商品名" => "item", "ジャンル" => "genre" }) %>
+          <%= f.text_field 'search[value]' %>
+          <%= f.submit "検索", class: "btn btn-red btn-sm" %>
+         </div>
+        </div>
+      <% end %>
+   <% end %>
+</header>
