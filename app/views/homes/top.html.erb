@@ -9,8 +9,8 @@
   </div>
     <div class="cotainer">
       <h2 class="page_title offset-md-1 my-5">新着商品</h2>
-      <div class="row">
-        <div class="mx-auto d-flex">
+      <div class="col-md-8 offset-md-2">
+        <div class="new-arrival">
           <% @items.each do |item| %>
             <div class="mx-3 card-box">
               <%= link_to item_path(item) do %>
@@ -28,4 +28,8 @@
         </div>
       </div>
     </div>
+</div>
+
+<div class="start">
+    <p><%= image_tag "logo.jpg", alt:"Nagano Cake", width: 250 %></p>
 </div>
