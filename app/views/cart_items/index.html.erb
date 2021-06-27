@@ -18,14 +18,14 @@
       <% @sub_total = 0 %>
       <% @cart_items.each do |cart_item| %>
       <% @sub_total = cart_item.add_tax_price * cart_item.amount %>
-      <tr id="cart">
+      <tr>
         <td class="col-4 align-middle">
           <div><%= attachment_image_tag cart_item.item, :image, :fill, 50, 40 %>　<%= cart_item.item.name %></div>
           <div></div>
         </td>
         <td class="col-2 align-middle"><%= (cart_item.add_tax_price).to_s(:delimited) %></td>
         
-        <td class="col-2 align-middle text-center cart-update-botton">
+        <td id=" cart-update-botton" class="col-2 align-middle text-center">
           <%= render 'cart_items/cart_update', customer_id: current_customer, cart_item: cart_item %>
         </td>
         
