@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    get '/customers/:customer_id/ordersr' => 'orders#orders'
     resources :orders, only: [:index, :show, :update] do
       resources :order_items, only: [:update]
     end

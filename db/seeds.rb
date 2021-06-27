@@ -9,10 +9,10 @@
 
 p "create Customers"
 Customer.create!(
-  last_name: '佐藤',
-  first_name: '愛',
-  last_name_kana: 'サトウ',
-  first_name_kana: 'アイ',
+  last_name: '田中',
+  first_name: '圭',
+  last_name_kana: 'タナカ',
+  first_name_kana: 'ケイ',
   email: 'user1@exam.com',
   postal_code: '1111111',
   address: '東京都港区',
@@ -20,10 +20,10 @@ Customer.create!(
   telephone_number: '1111111111',
 )
 Customer.create!(
-  last_name: '橋本',
-  first_name: '勇気',
-  last_name_kana: 'ハシモト',
-  first_name_kana: 'ユウキ',
+  last_name: '川口',
+  first_name: '春奈',
+  last_name_kana: 'カワグチ',
+  first_name_kana: 'ハルナ',
   email: 'user2@exam.com',
   postal_code: '2222222',
   address: '東京都葛飾区',
@@ -31,15 +31,27 @@ Customer.create!(
   telephone_number: '2222222222',
 )
 Customer.create!(
-  last_name: '田中',
-  first_name: '凌',
-  last_name_kana: 'タナカ',
-  first_name_kana: 'リョウ',
+  last_name: '渡辺',
+  first_name: '謙',
+  last_name_kana: 'ワタナベ',
+  first_name_kana: 'ケン',
   email: 'user3@exam.com',
   postal_code: '3333333',
   address: '東京都台東区',
   password: 'cccccccc',
   telephone_number: '3333333333',
+)
+
+Customer.create!(
+  last_name: '小泉',
+  first_name: '今日子',
+  last_name_kana: 'コイズミ',
+  first_name_kana: 'キョウコ',
+  email: 'user4@exam.com',
+  postal_code: '4444444',
+  address: '東京都台東区',
+  password: 'dddddddd',
+  telephone_number: '444444444',
 )
 
 p "create Genres"
